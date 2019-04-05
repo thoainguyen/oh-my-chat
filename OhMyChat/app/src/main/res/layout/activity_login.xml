@@ -35,12 +35,12 @@
         android:padding="25dp">
 
         <EditText
-            android:id="@+id/edtDisplayName"
+            android:id="@+id/edtUsername"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="15dp"
             android:drawablePadding="8dp"
-            android:hint="Username"
+            android:hint="@string/usernameHint"
             android:textColor="#fff"
             android:textColorHint="#fff"
             android:backgroundTint="#fff"
@@ -54,7 +54,7 @@
             android:layout_height="wrap_content"
             android:layout_marginBottom="20dp"
             android:drawablePadding="8dp"
-            android:hint="Password"
+            android:hint="@string/passwordHint"
             android:textColor="#fff"
             android:textColorHint="#fff"
             android:backgroundTint="#fff"

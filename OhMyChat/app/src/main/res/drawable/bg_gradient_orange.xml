@@ -4,4 +4,5 @@
         android:startColor="@color/colorPrimary"
         android:endColor="@color/colorSecondary"
         android:angle="90"/>
+    
 </shape>
