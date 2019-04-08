@@ -1,0 +1,44 @@
+{
+  "project_info": {
+    "project_number": "940692803448",
+    "firebase_url": "https://ohmychat-a3074.firebaseio.com",
+    "project_id": "ohmychat-a3074",
+    "storage_bucket": "ohmychat-a3074.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:940692803448:android:5f734c6de2e702e0",
+        "android_client_info": {
+          "package_name": "com.bkteam.ohmychat"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "940692803448-q1ihq8b7dfoltlep6pbhf9f0fj1o24fj.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.bkteam.ohmychat",
+            "certificate_hash": "faaaf5a5da6549249404a6725404b0ef87e9fb2c"
+          }
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCrLO30HSaB5GbhPhnvy-MXf9PnzvIhpBQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "940692803448-vp8r1hkam1lslkpshokl6jnrvep9n9qt.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
