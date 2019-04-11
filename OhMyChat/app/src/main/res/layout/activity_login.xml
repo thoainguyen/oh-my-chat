@@ -1,98 +1,146 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/wrapperView"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/bg_gradient_orange"
-    android:fitsSystemWindows="true"
-    android:orientation="vertical">
-    <!--tools:context="com.chatapp.threadripper.authentication.LoginActivity"-->
+    tools:context=".LoginActivity">
 
-
-    <TextView
-        android:id="@+id/tvCheckConnection"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center"
-        android:padding="2dp"
-        android:text="Connection is established!"
-        android:visibility="gone" />
-
-    <ImageView
-        android:id="@+id/imageView"
-        android:layout_width="80dp"
-        android:layout_height="80dp"
-        android:layout_gravity="center"
-        android:layout_marginBottom="45dp"
-        android:layout_marginTop="55dp"
-        android:src="@mipmap/ic_launcher" />
-
-    <LinearLayout
+    <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical"
-        android:padding="25dp">
-
-        <EditText
-            android:id="@+id/edtUsername"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="15dp"
-            android:drawablePadding="8dp"
-            android:hint="@string/usernameHint"
-            android:textColor="#fff"
-            android:textColorHint="#fff"
-            android:backgroundTint="#fff"
-            android:drawableLeft="@drawable/ic_person_white"
-            android:textCursorDrawable="@drawable/custom_cursor_white"
-            android:inputType="text" />
-
-        <EditText
-            android:id="@+id/edtPassword"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="20dp"
-            android:drawablePadding="8dp"
-            android:hint="@string/passwordHint"
-            android:textColor="#fff"
-            android:textColorHint="#fff"
-            android:backgroundTint="#fff"
-            android:drawableLeft="@drawable/ic_lock_white"
-            android:textCursorDrawable="@drawable/custom_cursor_white"
-            android:inputType="textPassword" />
-
-        <Button
-            android:id="@+id/btnLogin"
-            android:background="@drawable/bg_button_white"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Login"
-            android:textAllCaps="true" />
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginEnd="0dp"
+        android:layout_marginBottom="0dp">
 
         <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="40dp"
-            android:layout_marginBottom="30dp">
+            android:layout_height="wrap_content">
+            
+            
+            <ImageView
+                android:id="@+id/login_image"
+                android:layout_width="match_parent"
+                android:layout_height="250dp"
+                android:src="@drawable/login_photo"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentTop="true"
+                android:scaleType="fitCenter"
+                android:layout_marginTop="10dp"/>
+
+            <EditText
+                android:id="@+id/login_email"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/login_image"
+                android:hint="@string/email"
+                android:inputType="textEmailAddress"
+                android:background="@drawable/inputs"
+                android:padding="4dp"
+                android:drawableStart="@drawable/email"
+                android:layout_marginTop="25dp"
+                android:layout_marginLeft="17dp"
+                android:layout_marginRight="17dp"
+                android:textCursorDrawable="@drawable/pink_cursor"
+                />
+
+            <EditText
+                android:id="@+id/login_password"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/login_email"
+                android:hint="@string/password"
+                android:inputType="textPassword"
+                android:padding="4dp"
+                android:drawableStart="@drawable/password"
+                android:background="@drawable/inputs"
+                android:layout_marginTop="10dp"
+                android:layout_marginLeft="17dp"
+                android:layout_marginRight="17dp"
+                android:textCursorDrawable="@drawable/pink_cursor"
+                />
 
             <TextView
-                android:id="@+id/tvForgot"
-                android:layout_width="wrap_content"
+                android:id="@+id/forget_password_link"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_alignParentLeft="true"
-                android:text="Forgot password?"
-                android:textColor="#fff" />
+                android:layout_below="@+id/login_password"
+                android:layout_alignParentStart="true"
+                android:text="Forget Password ?"
+                android:layout_marginTop="2dp"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="23dp"
+                android:textColor="@color/colorPrimaryDark"
+                android:textAlignment="textEnd"
+                android:textSize="17sp"
+                android:textStyle="bold"
+                />
+
+            <Button
+                android:id="@+id/login_button"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/forget_password_link"
+                android:text="@string/login"
+                android:padding="4dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginLeft="17dp"
+                android:layout_marginRight="17dp"
+                android:textSize="24sp"
+                android:textAllCaps="false"
+                android:textColor="@android:color/background_light"
+                android:background="@drawable/buttons"
+                />
 
             <TextView
-                android:id="@+id/tvSignUp"
-                android:layout_width="wrap_content"
+                android:id="@+id/need_new_account_link"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_alignParentRight="true"
-                android:text="Create account?"
-                android:textColor="#fff" />
+                android:layout_below="@+id/login_button"
+                android:layout_alignParentStart="true"
+                android:text="Need new Account ?"
+                android:layout_marginTop="2dp"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="23dp"
+                android:textColor="@color/colorPrimaryDark"
+                android:textAlignment="center"
+                android:textSize="17sp"
+                android:textStyle="bold"
+                />
 
+            <TextView
+                android:id="@+id/login_using"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/need_new_account_link"
+                android:layout_alignParentStart="true"
+                android:text="or Login using your"
+                android:layout_marginTop="10dp"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="23dp"
+                android:textAlignment="center"
+                android:textSize="17sp"
+                android:textStyle="bold"
+                />
+
+            <Button
+                android:id="@+id/phone_login_button"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/login_using"
+                android:text="@string/phone"
+                android:padding="4dp"
+                android:layout_marginTop="9dp"
+                android:layout_marginLeft="19dp"
+                android:layout_marginRight="19dp"
+                android:textSize="24sp"
+                android:textAllCaps="false"
+                android:textColor="@android:color/background_light"
+                android:background="@drawable/buttons"
+                android:drawableStart="@drawable/phone"
+                />
         </RelativeLayout>
 
-    </LinearLayout>
-</LinearLayout>
+
+    </ScrollView>
+</RelativeLayout>
