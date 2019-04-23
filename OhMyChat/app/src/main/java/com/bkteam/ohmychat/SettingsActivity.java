@@ -2,6 +2,7 @@ package com.bkteam.ohmychat;
 
 import android.content.Intent;
 import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.TextUtils;
@@ -31,6 +32,7 @@ public class SettingsActivity extends AppCompatActivity {
     private String currentUserID;
     private FirebaseAuth mAuth;
     private DatabaseReference rootRef;
+    private static final int GalleryPick = 1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -55,6 +57,16 @@ public class SettingsActivity extends AppCompatActivity {
         });
 
         RetrieveUserInfo();
+
+        userProfileImage.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent galleryIntent = new Intent();
+                galleryIntent.setAction(Intent.ACTION_GET_CONTENT);
+                galleryIntent.setType("image/*");
+                startActivityForResult(galleryIntent,GalleryPick);
+            }
+        });
     }
 
     private void RetrieveUserInfo() {
@@ -129,6 +141,12 @@ public class SettingsActivity extends AppCompatActivity {
         userName = (EditText)findViewById(R.id.set_user_name);
         userStatus = (EditText)findViewById(R.id.set_profile_status);
         userProfileImage = (CircleImageView)findViewById(R.id.set_profile_image);
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+
     }
 
     private void SendUserToMainActivity(){
