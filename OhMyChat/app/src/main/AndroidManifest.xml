@@ -13,8 +13,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".FindFriendActivity"
-            android:parentActivityName=".MainActivity"></activity>
+
         <activity android:name=".PhoneLoginActivity" />
         <activity android:name=".GroupChatActivity" />
         <activity android:name=".SettingsActivity" />
@@ -30,6 +29,8 @@
         <activity
             android:name="com.theartofdev.edmodo.cropper.CropImageActivity"
             android:theme="@style/Base.Theme.AppCompat" />
+        <activity android:name=".FindFriendActivity"
+            android:parentActivityName=".MainActivity"></activity>
     </application>
 
 </manifest>
