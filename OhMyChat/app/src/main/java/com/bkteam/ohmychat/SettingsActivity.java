@@ -12,6 +12,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
+import android.support.v7.widget.Toolbar;
 
 import com.google.android.gms.tasks.Continuation;
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -38,13 +39,13 @@ public class SettingsActivity extends AppCompatActivity {
     private Button updateAccountSettings;
     private EditText userName, userStatus;
     private CircleImageView userProfileImage;
-    private String retrieveProfileImage;
     private String currentUserID;
     private FirebaseAuth mAuth;
     private DatabaseReference rootRef;
     private StorageReference userProfileImageRef;
     private static final int GalleryPick = 1;
     private ProgressDialog loadingBar;
+    private Toolbar settingsToolbar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -90,7 +91,7 @@ public class SettingsActivity extends AppCompatActivity {
                         (dataSnapshot.hasChild("image"))) {
                     String retrieveUserName = dataSnapshot.child("name").getValue().toString();
                     String retrieveUserStatus = dataSnapshot.child("status").getValue().toString();
-                    retrieveProfileImage = dataSnapshot.child("image").getValue().toString();
+                    String retrieveProfileImage = dataSnapshot.child("image").getValue().toString();
 
                     userName.setText(retrieveUserName);
                     userStatus.setText(retrieveUserStatus);
@@ -123,13 +124,12 @@ public class SettingsActivity extends AppCompatActivity {
         } else if (TextUtils.isEmpty(setStatus)) {
             Toast.makeText(this, "Please write your status...", Toast.LENGTH_SHORT).show();
         } else {
-            HashMap<String, String> profileMap = new HashMap<>();
+            HashMap<String, Object> profileMap = new HashMap<>();
             profileMap.put("uid", currentUserID);
             profileMap.put("name", setUserName);
             profileMap.put("status", setStatus);
-            profileMap.put("image", retrieveProfileImage);
 
-            rootRef.child("Users").child(currentUserID).setValue(profileMap)
+            rootRef.child("Users").child(currentUserID).updateChildren(profileMap)
                     .addOnCompleteListener(new OnCompleteListener<Void>() {
                         @Override
                         public void onComplete(@NonNull Task<Void> task) {
@@ -152,6 +152,11 @@ public class SettingsActivity extends AppCompatActivity {
         userStatus = (EditText) findViewById(R.id.set_profile_status);
         userProfileImage = (CircleImageView) findViewById(R.id.set_profile_image);
         loadingBar = new ProgressDialog(this);
+        settingsToolbar = (Toolbar)findViewById(R.id.settings_toolbar);
+        setSupportActionBar(settingsToolbar);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setDisplayShowHomeEnabled(true);
+        getSupportActionBar().setTitle("Account Settings");
     }
 
     @Override
