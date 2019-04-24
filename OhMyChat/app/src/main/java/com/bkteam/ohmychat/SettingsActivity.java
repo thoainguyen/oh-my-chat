@@ -38,6 +38,7 @@ public class SettingsActivity extends AppCompatActivity {
     private Button updateAccountSettings;
     private EditText userName, userStatus;
     private CircleImageView userProfileImage;
+    private String retrieveProfileImage;
     private String currentUserID;
     private FirebaseAuth mAuth;
     private DatabaseReference rootRef;
@@ -89,7 +90,7 @@ public class SettingsActivity extends AppCompatActivity {
                         (dataSnapshot.hasChild("image"))) {
                     String retrieveUserName = dataSnapshot.child("name").getValue().toString();
                     String retrieveUserStatus = dataSnapshot.child("status").getValue().toString();
-                    String retrieveProfileImage = dataSnapshot.child("image").getValue().toString();
+                    retrieveProfileImage = dataSnapshot.child("image").getValue().toString();
 
                     userName.setText(retrieveUserName);
                     userStatus.setText(retrieveUserStatus);
@@ -126,6 +127,7 @@ public class SettingsActivity extends AppCompatActivity {
             profileMap.put("uid", currentUserID);
             profileMap.put("name", setUserName);
             profileMap.put("status", setStatus);
+            profileMap.put("image", retrieveProfileImage);
 
             rootRef.child("Users").child(currentUserID).setValue(profileMap)
                     .addOnCompleteListener(new OnCompleteListener<Void>() {
@@ -204,7 +206,6 @@ public class SettingsActivity extends AppCompatActivity {
                                                 String message = task.getException().toString();
                                                 Toast.makeText(SettingsActivity.this, "Error : " + message, Toast.LENGTH_SHORT).show();
                                                 loadingBar.dismiss();
-
                                             }
                                         }
                                     });
