@@ -6,42 +6,50 @@ const admin = require('firebase-admin');
 admin.initializeApp(functions.config().firebase);
 
 
-exports.sendNotification = functions.database.ref('/Notifications/{receiver_user_id}/{notification_id}')
-.onWrite((data, context) =>
-{
-	const receiver_user_id = context.params.receiver_user_id;
-	const notification_id = context.params.notification_id;
+exports.sendNotification = functions.database.ref('/Notifications/{receiverUserId}/{notificationId}')
+    .onWrite((data, context) => {
+        const receiverUserId = context.params.receiverUserId;
+        const notificationId = context.params.notificationId;
 
 
-	console.log('We have a notification to send to :' , receiver_user_id);
+        console.log('We have a notification to send to :', receiverUserId);
 
 
-	if (!data.after.val()) 
-	{
-		console.log('A notification has been deleted :' , notification_id);
-		return null;
-	}
+        if (!data.after.val()) {
+            console.log('A notification has been deleted :', notificationId);
+            return null;
+        }
 
-	const DeviceToken = admin.database().ref(`/Users/${receiver_user_id}/device_token`).once('value');
+        const senderUserId = admin.database().ref(`/Notifications/${receiverUserId}/${notificationId}`).once('value');
 
-	return DeviceToken.then(result => 
-	{
-		const token_id = result.val();
+        return senderUserId.then(fromUserResult => {
+            const fromSenderUserId = fromUserResult.val().from;
+            console.log('You have a notification from : ', senderUserId);
+            const userQuery = admin.database().ref(`/Users/${receiverUserId}/name`).once('value');
+            return userQuery.then(userResult => {
+                const senderUserName = userResult.val();
 
-		const payload = 
-		{
-			notification:
-			{
-				title: "New Chat Request",
-				body: `you have a new Chat Request, Please Check.`,
-				icon: "default"
-			}
-		};
+                const DeviceToken = admin.database().ref(`/Users/${receiverUserId}/deviceToken`).once('value');
 
-		return admin.messaging().sendToDevice(token_id, payload)
-		.then(response => 
-			{
-				console.log('This was a notification feature.');
-			});
-	});
-});
+                return DeviceToken.then(result => {
+                    const token_id = result.val();
+
+                    const payload =
+                    {
+                        notification:
+                        {
+                            fromSenderUserId: fromSenderUserId,
+                            title: "New Chat Request",
+                            body: `${senderUserName} want to connect with you`,
+                            icon: "default"
+                        }
+                    };
+
+                    return admin.messaging().sendToDevice(token_id, payload)
+                        .then(response => {
+                            console.log('This was a notification feature.');
+                        });
+                });
+            });
+        });
+    });
