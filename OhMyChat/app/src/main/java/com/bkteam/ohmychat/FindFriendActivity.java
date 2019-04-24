@@ -1,5 +1,6 @@
 package com.bkteam.ohmychat;
 
+import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -54,11 +55,20 @@ public class FindFriendActivity extends AppCompatActivity {
         FirebaseRecyclerAdapter<Contacts, FindFriendViewHolder> adapter = new
                 FirebaseRecyclerAdapter<Contacts, FindFriendViewHolder>(options) {
                     @Override
-                    protected void onBindViewHolder(@NonNull FindFriendViewHolder holder, int position, @NonNull Contacts model) {
+                    protected void onBindViewHolder(@NonNull FindFriendViewHolder holder, final int position, @NonNull Contacts model) {
                         holder.userName.setText(model.getName());
                         holder.userStatus.setText(model.getStatus());
                         Picasso.get().load(model.getImage()).placeholder(R.drawable.profile_image)
                                 .into(holder.profileImage);
+                        holder.itemView.setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View v) {
+                                String visitUserId = getRef(position).getKey();
+                                Intent profileIntent = new Intent(FindFriendActivity.this, ProfileActivity.class);
+                                profileIntent.putExtra("visitUserId", visitUserId);
+                                startActivity(profileIntent);
+                            }
+                        });
                     }
 
                     @NonNull
