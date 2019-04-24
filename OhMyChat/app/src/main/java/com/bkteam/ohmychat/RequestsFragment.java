@@ -73,6 +73,7 @@ public class RequestsFragment extends Fragment {
                     protected void onBindViewHolder(@NonNull final RequestsViewHolder holder, int position, @NonNull Contacts model) {
                         holder.itemView.findViewById(R.id.requests_accept_btn).setVisibility(View.VISIBLE);
                         holder.itemView.findViewById(R.id.requests_cancel_btn).setVisibility(View.VISIBLE);
+
                         final String listUserId = getRef(position).getKey();
                         DatabaseReference getTypeRef = getRef(position).child("requestType").getRef();
                         getTypeRef.addValueEventListener(new ValueEventListener() {

@@ -36,6 +36,10 @@
         <activity
             android:name=".FindFriendActivity"
             android:parentActivityName=".MainActivity" />
+
+
     </application>
+
+
 
 </manifest>
