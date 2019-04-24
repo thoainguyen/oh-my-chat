@@ -1,2 +1,3 @@
-./idea
-./settings
+.idea
+.settings
+app/.settings
