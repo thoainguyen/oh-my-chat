@@ -102,6 +102,10 @@ public class MainActivity extends AppCompatActivity {
         finish();
     }
 
+    private void SendUserToFindFriendsActivity() {
+        Intent findFriendsIntent = new Intent(MainActivity.this, FindFriendActivity.class);
+        startActivity(findFriendsIntent);
+    }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu){
@@ -137,7 +141,7 @@ public class MainActivity extends AppCompatActivity {
         }
 
         if(item.getItemId() == R.id. main_find_friends_option){
-
+            SendUserToFindFriendsActivity();
         }
         return true;
     }
