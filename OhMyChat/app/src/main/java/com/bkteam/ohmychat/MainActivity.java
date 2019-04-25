@@ -75,6 +75,8 @@ public class MainActivity extends AppCompatActivity {
     protected void onStart(){
         super.onStart();
 
+        FirebaseUser currentUser = mAuth.getCurrentUser();
+
         if(currentUser == null){
             SendUserToLoginActivity();
         }
@@ -153,6 +155,7 @@ public class MainActivity extends AppCompatActivity {
         super.onOptionsItemSelected(item);
 
         if(item.getItemId() == R.id.main_logout_option){
+            updateUserStatus("offline");
             mAuth.signOut();
             SendUserToLoginActivity();
         }
