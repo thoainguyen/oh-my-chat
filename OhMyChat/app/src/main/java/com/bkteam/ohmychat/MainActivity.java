@@ -28,6 +28,10 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.HashMap;
+
 public class MainActivity extends AppCompatActivity {
 
     private Toolbar mToolbar;
@@ -39,6 +43,7 @@ public class MainActivity extends AppCompatActivity {
     private FirebaseUser currentUser;
     private FirebaseAuth mAuth;
     private DatabaseReference rootRef;
+    private String currentUserId;
 
 
     @Override
@@ -191,6 +196,22 @@ public class MainActivity extends AppCompatActivity {
                         }
                     }
                 });
+    }
+
+    private void updateUserStatus(String state){
+        String saveCurrentUserTime, saveCurrentUserDate;
+        Calendar calendar = Calendar.getInstance();
+        SimpleDateFormat currentDate  = new SimpleDateFormat("MMM dd, yyyy");
+        saveCurrentUserDate = currentDate.format(calendar.getTime());
+        SimpleDateFormat currentTime  = new SimpleDateFormat("hh:mm s");
+        saveCurrentUserTime = currentTime.format(calendar.getTime());
+        HashMap<String, Object> onlineState = new HashMap<>();
+        onlineState.put("time", saveCurrentUserTime);
+        onlineState.put("date", saveCurrentUserDate);
+        onlineState.put("state", saveCurrentUserTime);
+
+
+
     }
 
 }
