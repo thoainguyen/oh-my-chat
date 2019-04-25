@@ -79,7 +79,24 @@ public class MainActivity extends AppCompatActivity {
             SendUserToLoginActivity();
         }
         else{
+            updateUserStatus("online");
             VerifyUserExistance();
+        }
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+        if(mAuth != null && mAuth.getCurrentUser()!= null){
+            updateUserStatus("offline");
+        }
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        if(mAuth != null && mAuth.getCurrentUser()!= null){
+            updateUserStatus("offline");
         }
     }
 
@@ -205,12 +222,15 @@ public class MainActivity extends AppCompatActivity {
         saveCurrentUserDate = currentDate.format(calendar.getTime());
         SimpleDateFormat currentTime  = new SimpleDateFormat("hh:mm s");
         saveCurrentUserTime = currentTime.format(calendar.getTime());
-        HashMap<String, Object> onlineState = new HashMap<>();
-        onlineState.put("time", saveCurrentUserTime);
-        onlineState.put("date", saveCurrentUserDate);
-        onlineState.put("state", saveCurrentUserTime);
 
+        HashMap<String, Object> onlineStateMap = new HashMap<>();
+        onlineStateMap.put("time", saveCurrentUserTime);
+        onlineStateMap.put("date", saveCurrentUserDate);
+        onlineStateMap.put("state", state);
 
+        currentUserId = mAuth.getCurrentUser().getUid();
+        rootRef.child("Users").child(currentUserId).child("userState")
+                .updateChildren(onlineStateMap);
 
     }
 
