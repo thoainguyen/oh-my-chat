@@ -45,7 +45,7 @@ public class ProfileActivity extends AppCompatActivity {
         senderUserId = mAuth.getCurrentUser().getUid();
 
         receiverUserId = getIntent().getExtras().get("visitUserId").toString();
-        Toast.makeText(this, "User ID : " + receiverUserId, Toast.LENGTH_SHORT).show();
+        // Toast.makeText(this, "User ID : " + receiverUserId, Toast.LENGTH_SHORT).show();
 
         userProfileImage = (CircleImageView)findViewById(R.id.visit_profile_image);
         userProfileName = (TextView)findViewById(R.id.visit_user_name);
@@ -53,6 +53,7 @@ public class ProfileActivity extends AppCompatActivity {
         sendMessageRequestButton = (Button)findViewById(R.id.send_message_request_button);
         declineMessageRequestButton = (Button)findViewById(R.id.decline_message_request_button);
         currentState = "new";
+
         RetrieveUserInfo();
     }
 
@@ -60,26 +61,18 @@ public class ProfileActivity extends AppCompatActivity {
         userRef.child(receiverUserId).addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+
                 if((dataSnapshot.exists()) && (dataSnapshot.hasChild("image"))){
                     String userImage = dataSnapshot.child("image").getValue().toString();
-                    String userName = dataSnapshot.child("name").getValue().toString();
-                    String userStatus = dataSnapshot.child("status").getValue().toString();
-
                     Picasso.get().load(userImage).placeholder(R.drawable.profile_image).into(userProfileImage);
-                    userProfileName.setText(userName);
-                    userProfileStatus.setText(userStatus);
-
-                    ManageChatRequests();
-                }
-                else {
-                    String userName = dataSnapshot.child("name").getValue().toString();
-                    String userStatus = dataSnapshot.child("status").getValue().toString();
-
-                    userProfileName.setText(userName);
-                    userProfileStatus.setText(userStatus);
-                    ManageChatRequests();
                 }
 
+                String userName = dataSnapshot.child("name").getValue().toString();
+                String userStatus = dataSnapshot.child("status").getValue().toString();
+
+                userProfileName.setText(userName);
+                userProfileStatus.setText(userStatus);
+                ManageChatRequests();
             }
 
             @Override

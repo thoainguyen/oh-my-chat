@@ -63,10 +63,12 @@ public class RequestsFragment extends Fragment {
     @Override
     public void onStart() {
         super.onStart();
+
         FirebaseRecyclerOptions<Contacts> options =
                 new FirebaseRecyclerOptions.Builder<Contacts>()
-                .setQuery(chatRequestsRef.child(currentUserId), Contacts.class)
+                    .setQuery(chatRequestsRef.child(currentUserId), Contacts.class)
                 .build();
+
         final FirebaseRecyclerAdapter<Contacts, RequestsViewHolder> adapter =
                 new FirebaseRecyclerAdapter<Contacts, RequestsViewHolder>(options) {
                     @Override

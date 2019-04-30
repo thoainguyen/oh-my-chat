@@ -56,10 +56,9 @@ public class SettingsActivity extends AppCompatActivity {
 
         mAuth = FirebaseAuth.getInstance();
         currentUserID = mAuth.getCurrentUser().getUid();
+
         rootRef = FirebaseDatabase.getInstance().getReference();
         userProfileImageRef = FirebaseStorage.getInstance().getReference().child("Profile Images");
-
-        userName.setVisibility(View.INVISIBLE);
 
 
         updateAccountSettings.setOnClickListener(new View.OnClickListener() {
@@ -67,10 +66,7 @@ public class SettingsActivity extends AppCompatActivity {
             public void onClick(View v) {
                 UpdateSettings();
             }
-
         });
-
-        RetrieveUserInfo();
 
         userProfileImage.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -81,30 +77,30 @@ public class SettingsActivity extends AppCompatActivity {
                 startActivityForResult(galleryIntent, GalleryPick);
             }
         });
+
+        RetrieveUserInfo();
     }
 
     private void RetrieveUserInfo() {
         rootRef.child("Users").child(currentUserID).addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                if ((dataSnapshot.exists()) && (dataSnapshot.hasChild("name")) &&
-                        (dataSnapshot.hasChild("image"))) {
-                    String retrieveUserName = dataSnapshot.child("name").getValue().toString();
-                    String retrieveUserStatus = dataSnapshot.child("status").getValue().toString();
-                    String retrieveProfileImage = dataSnapshot.child("image").getValue().toString();
-
-                    userName.setText(retrieveUserName);
-                    userStatus.setText(retrieveUserStatus);
-                    Picasso.get().load(retrieveProfileImage).into(userProfileImage);
-                } else if ((dataSnapshot.exists()) && (dataSnapshot.hasChild("name"))) {
-                    String retrieveUserName = dataSnapshot.child("name").getValue().toString();
-                    String retrieveUserStatus = dataSnapshot.child("status").getValue().toString();
-
-                    userName.setText(retrieveUserName);
-                    userStatus.setText(retrieveUserStatus);
-                } else {
-                    userName.setVisibility(View.VISIBLE);
-                    Toast.makeText(SettingsActivity.this, "Please set & update profile...", Toast.LENGTH_SHORT).show();
+                if(dataSnapshot.exists()) {
+                    if (dataSnapshot.hasChild("name")) {
+                        String retrieveUserName = dataSnapshot.child("name").getValue().toString();
+                        userName.setText(retrieveUserName);
+                    }
+                    if (dataSnapshot.hasChild("status")) {
+                        String retrieveUserStatus = dataSnapshot.child("status").getValue().toString();
+                        userStatus.setText(retrieveUserStatus);
+                    }
+                    if (dataSnapshot.hasChild("image")) {
+                        String retrieveProfileImage = dataSnapshot.child("image").getValue().toString();
+                        Picasso.get().load(retrieveProfileImage).into(userProfileImage);
+                    }
+                }
+                else {
+                    Toast.makeText(SettingsActivity.this, "Please set & update profile...", Toast.LENGTH_LONG).show();
                 }
             }
 
@@ -135,7 +131,7 @@ public class SettingsActivity extends AppCompatActivity {
                         public void onComplete(@NonNull Task<Void> task) {
                             if (task.isSuccessful()) {
                                 SendUserToMainActivity();
-                                Toast.makeText(SettingsActivity.this, "Profile Update Successfully...", Toast.LENGTH_SHORT).show();
+                                // Toast.makeText(SettingsActivity.this, "Profile Update Successfully...", Toast.LENGTH_SHORT).show();
                             } else {
                                 String message = task.getException().toString();
                                 Toast.makeText(SettingsActivity.this, "Error : " + message, Toast.LENGTH_SHORT).show();
@@ -163,8 +159,7 @@ public class SettingsActivity extends AppCompatActivity {
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
 
-        if (requestCode == GalleryPick && resultCode == RESULT_OK
-                && data != null) {
+        if (requestCode == GalleryPick && resultCode == RESULT_OK && data != null) {
             Uri ImageUri = data.getData();
             // start picker to get image for cropping and then use the image in cropping activity
             CropImage.activity()
@@ -185,7 +180,8 @@ public class SettingsActivity extends AppCompatActivity {
                 Uri resultUri = result.getUri();
                 final StorageReference filePath = userProfileImageRef.child(currentUserID + ".jpg");
 
-                filePath.putFile(resultUri).continueWithTask(new Continuation<UploadTask.TaskSnapshot, Task<Uri>>() {
+                filePath.putFile(resultUri)
+                .continueWithTask(new Continuation<UploadTask.TaskSnapshot, Task<Uri>>() {
                     @Override
                     public Task<Uri> then(@NonNull Task<UploadTask.TaskSnapshot> task) throws Exception {
                         if (!task.isSuccessful()) {
@@ -205,7 +201,7 @@ public class SettingsActivity extends AppCompatActivity {
                                         @Override
                                         public void onComplete(@NonNull Task<Void> task) {
                                             if (task.isSuccessful()) {
-                                                Toast.makeText(SettingsActivity.this, "Image save on database, successfully...", Toast.LENGTH_SHORT).show();
+                                                // Toast.makeText(SettingsActivity.this, "Image save on database, successfully...", Toast.LENGTH_SHORT).show();
                                                 loadingBar.dismiss();
                                             } else {
                                                 String message = task.getException().toString();

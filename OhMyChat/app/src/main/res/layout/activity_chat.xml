@@ -34,9 +34,9 @@
         
         <EditText
             android:id="@+id/input_message"
-            android:layout_width="330dp"
+            android:layout_width="320dp"
             android:layout_height="wrap_content"
-            android:hint="type message here..."
+            android:hint="write a message here..."
             android:padding="15dp"
             />
         
@@ -44,7 +44,8 @@
             android:id="@+id/send_message_btn"
             android:layout_width="60dp"
             android:layout_height="wrap_content"
-            android:src="@drawable/send_message"/>
+            android:src="@drawable/send_message"
+            />
 
     </LinearLayout>
     

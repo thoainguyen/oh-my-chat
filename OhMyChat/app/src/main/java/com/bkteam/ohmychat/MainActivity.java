@@ -19,7 +19,6 @@ import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
-import com.google.firebase.FirebaseApp;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
@@ -34,10 +33,10 @@ import java.util.HashMap;
 
 public class MainActivity extends AppCompatActivity {
 
-    private Toolbar mToolbar;
-    private ViewPager myViewPaper;
-    private TabLayout myTabLayout;
-    private TabsAccessorAdapter myTabsAccessorAdapter;
+    private Toolbar   mToolbar;
+    private ViewPager mViewPaper;
+    private TabLayout mTabLayout;
+    private TabsAccessorAdapter mTabsAccessorAdapter;
 
 
     private FirebaseUser currentUser;
@@ -51,7 +50,6 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-//        FirebaseApp.initializeApp(MainActivity);
 
         mAuth = FirebaseAuth.getInstance();
         currentUser = mAuth.getCurrentUser();
@@ -61,12 +59,12 @@ public class MainActivity extends AppCompatActivity {
         setSupportActionBar(mToolbar);
         getSupportActionBar().setTitle("OhMyChat");
 
-        myViewPaper = (ViewPager)findViewById(R.id.main_tabs_paper);
-        myTabsAccessorAdapter = new TabsAccessorAdapter(getSupportFragmentManager());
-        myViewPaper.setAdapter(myTabsAccessorAdapter);
+        mViewPaper = (ViewPager)findViewById(R.id.main_tabs_paper);
+        mTabsAccessorAdapter = new TabsAccessorAdapter(getSupportFragmentManager());
+        mViewPaper.setAdapter(mTabsAccessorAdapter);
 
-        myTabLayout = (TabLayout)findViewById(R.id.main_tabs);
-        myTabLayout.setupWithViewPager(myViewPaper);
+        mTabLayout = (TabLayout)findViewById(R.id.main_tabs);
+        mTabLayout.setupWithViewPager(mViewPaper);
 
     }
 
@@ -81,36 +79,21 @@ public class MainActivity extends AppCompatActivity {
             SendUserToLoginActivity();
         }
         else{
-            updateUserStatus("online");
+
             VerifyUserExistance();
+            updateUserStatus("online");
         }
     }
 
-    @Override
-    protected void onStop() {
-        super.onStop();
-        if(mAuth != null && mAuth.getCurrentUser()!= null){
-            updateUserStatus("offline");
-        }
-    }
 
-    @Override
-    protected void onDestroy() {
-        super.onDestroy();
-        if(mAuth != null && mAuth.getCurrentUser()!= null){
-            updateUserStatus("offline");
-        }
-    }
+
 
     private void VerifyUserExistance() {
         String currentUserID = mAuth.getCurrentUser().getUid();
         rootRef.child("Users").child(currentUserID).addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                if((dataSnapshot.child("name").exists())){
-                    Toast.makeText(MainActivity.this, "Welcome", Toast.LENGTH_SHORT).show();
-                }
-                else{
+                if(!(dataSnapshot.child("name").exists())){
                     SendUserToSettingsActivity();
                 }
             }
@@ -137,17 +120,13 @@ public class MainActivity extends AppCompatActivity {
     @Override
     public boolean onCreateOptionsMenu(Menu menu){
         super.onCreateOptionsMenu(menu);
-
         getMenuInflater().inflate(R.menu.options_menu, menu);
-
         return true;
     }
 
     private void SendUserToSettingsActivity() {
         Intent settingsIntent = new Intent(MainActivity.this, SettingsActivity.class);
-        settingsIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
         startActivity(settingsIntent);
-        finish();
     }
 
     @Override
@@ -179,7 +158,7 @@ public class MainActivity extends AppCompatActivity {
         builder.setTitle("Enter Group Name : ");
 
         final EditText groupNameField = new EditText(MainActivity.this);
-        groupNameField.setHint("e.g Oh my Chat bku");
+        groupNameField.setHint("e.g Oh My Chat BKU");
         builder.setView(groupNameField);
 
         builder.setPositiveButton("Create", new DialogInterface.OnClickListener() {
@@ -188,7 +167,6 @@ public class MainActivity extends AppCompatActivity {
                 final String groupName = groupNameField.getText().toString();
                 if(TextUtils.isEmpty(groupName)){
                     Toast.makeText(MainActivity.this, "Please write Group Name..", Toast.LENGTH_SHORT).show();
-
                 }
                 else{
                     CreateNewGroup(groupName);
@@ -223,15 +201,16 @@ public class MainActivity extends AppCompatActivity {
         Calendar calendar = Calendar.getInstance();
         SimpleDateFormat currentDate  = new SimpleDateFormat("MMM dd, yyyy");
         saveCurrentUserDate = currentDate.format(calendar.getTime());
-        SimpleDateFormat currentTime  = new SimpleDateFormat("hh:mm s");
+        SimpleDateFormat currentTime  = new SimpleDateFormat("hh:mm ss");
         saveCurrentUserTime = currentTime.format(calendar.getTime());
 
         HashMap<String, Object> onlineStateMap = new HashMap<>();
+
         onlineStateMap.put("time", saveCurrentUserTime);
         onlineStateMap.put("date", saveCurrentUserDate);
         onlineStateMap.put("state", state);
 
-        currentUserId = mAuth.getCurrentUser().getUid();
+        currentUserId = currentUser.getUid();
         rootRef.child("Users").child(currentUserId).child("userState")
                 .updateChildren(onlineStateMap);
 

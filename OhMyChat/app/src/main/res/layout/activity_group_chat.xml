@@ -47,9 +47,9 @@
 
         <EditText
             android:id="@+id/input_group_message"
-            android:layout_width="350dp"
+            android:layout_width="320dp"
             android:layout_height="wrap_content"
-            android:hint="write a message here...."
+            android:hint="write a message here..."
             android:padding="17dp"/>
 
         <ImageButton

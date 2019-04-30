@@ -10,6 +10,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
@@ -88,14 +89,16 @@ public class ChatsFragment extends Fragment {
                                     String time = dataSnapshot.child("userState").child("time").getValue().toString();
 
                                     if(state.equals("online")){
-                                        holder.userStatus.setText("online");
+                                        holder.userStatus.setText("Online");
+                                        holder.userOnlineStatus.setImageResource(R.drawable.online);
                                     }
                                     else if(state.equals("offline")){
-                                        holder.userStatus.setText("Last Seen : "+ date + " " + time);
+                                        holder.userStatus.setText("Last Active\n"+ date + " " + time);
+                                        holder.userOnlineStatus.setImageResource(R.drawable.offline);
                                     }
                                 }
                                 else{
-                                    holder.userStatus.setText("offline");
+                                    holder.userStatus.setText("Offline");
                                 }
 
 
@@ -106,8 +109,6 @@ public class ChatsFragment extends Fragment {
                                         chatIntent.putExtra("visitUserId", userIds);
                                         chatIntent.putExtra("visitUserName", userName);
                                         chatIntent.putExtra("visitUserImage", profileImage[0]);
-
-
                                         startActivity(chatIntent);
                                     }
                                 });
@@ -135,12 +136,14 @@ public class ChatsFragment extends Fragment {
     public static class ChatsViewHolder extends RecyclerView.ViewHolder{
         CircleImageView profileImage;
         TextView userStatus, userName;
+        ImageView userOnlineStatus;
 
         public ChatsViewHolder(@NonNull View itemView) {
             super(itemView);
             profileImage = itemView.findViewById(R.id.users_profile_image);
             userStatus = itemView.findViewById(R.id.users_status);
             userName = itemView.findViewById(R.id.users_profile_name);
+            userOnlineStatus = itemView.findViewById(R.id.user_online_status);
         }
     }
 }

@@ -42,7 +42,7 @@ public class ChatActivity extends AppCompatActivity {
 
     private String messageReceiverID, messageReceiverName,
             messageReceiverImage, messageSenderID;
-    private TextView userName, userLastSeen;
+    private TextView userName;
     private CircleImageView userImage;
     private Toolbar chatToolBar;
     private ImageButton sendMessageBtn;
@@ -74,6 +74,7 @@ public class ChatActivity extends AppCompatActivity {
 
         InitializeControllers();
 
+        userName.setText(messageReceiverName);
         Picasso.get().load(messageReceiverImage).placeholder(R.drawable.profile_image).into(userImage);
 
         sendMessageBtn.setOnClickListener(new View.OnClickListener() {
@@ -125,35 +126,7 @@ public class ChatActivity extends AppCompatActivity {
         }
     }
 
-    private void DisplayLastSeen(){
-        rootRef.child("Users").child(messageSenderID)
-                .addValueEventListener(new ValueEventListener() {
-                    @Override
-                    public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                        if(dataSnapshot.child("userState").hasChild("state")){
-                            String state = dataSnapshot.child("userState").child("state").getValue().toString();
-                            String date = dataSnapshot.child("userState").child("date").getValue().toString();
-                            String time = dataSnapshot.child("userState").child("time").getValue().toString();
 
-                            if(state.equals("online")){
-                                userLastSeen.setText("online");
-                            }
-                            else if(state.equals("offline")){
-                                userLastSeen.setText("Last Seen : "+ date + " " + time);
-                            }
-                        }
-                        else{
-                            userLastSeen.setText("offline");
-                        }
-
-                    }
-
-                    @Override
-                    public void onCancelled(@NonNull DatabaseError databaseError) {
-
-                    }
-                });
-    }
 
     private void InitializeControllers() {
         chatToolBar = (Toolbar)findViewById(R.id.chat_toolbar);
@@ -170,7 +143,6 @@ public class ChatActivity extends AppCompatActivity {
 
         userImage = (CircleImageView)findViewById(R.id.custom_profile_image);
         userName = (TextView)findViewById(R.id.custom_profile_name);
-        userLastSeen = (TextView)findViewById(R.id.custom_user_last_seen);
 
         sendMessageBtn = (ImageButton)findViewById(R.id.send_message_btn);
         messageInputText = (EditText)findViewById(R.id.input_message);

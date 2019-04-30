@@ -21,7 +21,7 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.iid.FirebaseInstanceId;
 
-public class LoginActivity extends  AppCompatActivity{
+public class LoginActivity extends AppCompatActivity{
 
     private FirebaseUser currentUser;
     private FirebaseAuth mAuth;

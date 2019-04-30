@@ -23,13 +23,12 @@ import com.google.firebase.iid.FirebaseInstanceId;
 
 public class RegisterActivity extends AppCompatActivity {
 
-    private Button createAccountButton;
+    private Button   createAccountButton;
     private EditText userEmail, userPassword;
     private TextView alreadyHaveAccount;
 
     private FirebaseAuth mAuth;
     private DatabaseReference rootRef;
-
     private ProgressDialog loadingBar;
 
 
