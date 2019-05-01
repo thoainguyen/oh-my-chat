@@ -50,7 +50,7 @@ public class ChatsFragment extends Fragment {
         currentUserId = mAuth.getCurrentUser().getUid();
         privateChatsView =  inflater.inflate(R.layout.fragment_chats, container, false);
 
-        chatsRef = FirebaseDatabase.getInstance().getReference().child("Contacts");
+        chatsRef = FirebaseDatabase.getInstance().getReference().child("Contacts").child(currentUserId);
         usersRef = FirebaseDatabase.getInstance().getReference().child("Users");
         chatsList = (RecyclerView)privateChatsView.findViewById(R.id.chats_list);
         chatsList.setLayoutManager(new LinearLayoutManager(getContext()));

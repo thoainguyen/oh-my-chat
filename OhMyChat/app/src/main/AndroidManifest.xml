@@ -16,7 +16,6 @@
         <activity android:name=".ChatActivity"
             android:parentActivityName=".MainActivity"></activity>
         <activity android:name=".ProfileActivity" />
-        <activity android:name=".PhoneLoginActivity" />
         <activity android:name=".GroupChatActivity" />
         <activity
             android:name=".SettingsActivity"
