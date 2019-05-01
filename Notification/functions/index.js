@@ -24,28 +24,28 @@ exports.sendNotification = functions.database.ref('/Notifications/{receiverUserI
 
         return senderUserId.then(fromUserResult => {
             const fromSenderUserId = fromUserResult.val().from;
-            console.log('You have a notification from : ', senderUserId);
-            const userQuery = admin.database().ref(`/Users/${receiverUserId}/name`).once('value');
+            console.log('You have a notification from : ', fromSenderUserId);
+            const userQuery = admin.database().ref(`/Users/${fromSenderUserId}/name`).once('value');
             return userQuery.then(userResult => {
                 const senderUserName = userResult.val();
 
-                const DeviceToken = admin.database().ref(`/Users/${receiverUserId}/deviceToken`).once('value');
+                const deviceToken = admin.database().ref(`/Users/${receiverUserId}/deviceToken`).once('value');
 
-                return DeviceToken.then(result => {
-                    const token_id = result.val();
+                return deviceToken.then(result => {
+                    const tokenId = result.val();
 
                     const payload =
                     {
                         notification:
                         {
-                            fromSenderUserId: fromSenderUserId,
+                            from: fromSenderUserId,
                             title: "New Chat Request",
                             body: `${senderUserName} want to connect with you`,
                             icon: "default"
                         }
                     };
 
-                    return admin.messaging().sendToDevice(token_id, payload)
+                    return admin.messaging().sendToDevice(tokenId, payload)
                         .then(response => {
                             console.log('This was a notification feature.');
                         });
