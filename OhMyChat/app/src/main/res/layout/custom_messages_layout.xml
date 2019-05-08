@@ -22,7 +22,6 @@
         android:text="receiver messages here"
         android:padding="10dp"
         android:textSize="14sp"
-        android:textStyle="bold"
         android:textColor="@android:color/black"/>
 
     <TextView
@@ -37,7 +36,6 @@
         android:padding="10dp"
         android:text="sender messages"
         android:textColor="@android:color/black"
-        android:textSize="14sp"
-        android:textStyle="bold" />
+        android:textSize="14sp"/>
 
 </RelativeLayout>
