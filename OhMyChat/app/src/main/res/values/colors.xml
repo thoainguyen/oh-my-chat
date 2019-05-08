@@ -5,5 +5,6 @@
     <color name="colorAccent">#F7EFF2</color>
     <color name="colorMyMessage">#68AFC7</color>
     <color name="colorOtherMessage">#BFDCEB</color>
-    <color name="colorWhite">#B1AEAE</color>
+    <color name="colorGray">#C2D7E2</color>
+    <color name="colorWhite">#FFFFFF</color>
 </resources>
