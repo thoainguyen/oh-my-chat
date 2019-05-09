@@ -16,17 +16,18 @@
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
-            
-            
+
+
             <ImageView
                 android:id="@+id/login_image"
                 android:layout_width="match_parent"
                 android:layout_height="250dp"
-                android:src="@drawable/login_photo"
                 android:layout_alignParentStart="true"
                 android:layout_alignParentTop="true"
-                android:scaleType="fitCenter"
-                android:layout_marginTop="10dp"/>
+                android:layout_marginTop="10dp"
+                android:scaleY="1"
+                android:scaleType="centerInside"
+                android:src="@drawable/logo" />
 
             <EditText
                 android:id="@+id/login_email"
