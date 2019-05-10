@@ -4,7 +4,6 @@ import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.text.Html;
 import android.text.TextUtils;
 import android.view.View;
 import android.widget.EditText;
@@ -113,8 +112,8 @@ public class GroupChatActivity extends AppCompatActivity {
             String chatName = (String)((DataSnapshot)iterator.next()).getValue();
             String chatTime = (String)((DataSnapshot)iterator.next()).getValue();
 
-            displayTextMessages.append(Html.fromHtml("<font color= blue>" + chatName + "</font>" + " :" + "<br>" + chatMessage + "<br>" +
-                     "<i>" + chatTime + "    " + chatDate + "</i>" + "<br><br><br>"));
+            displayTextMessages.append(chatName + " :\n" + chatMessage + "\n" +
+                    chatTime + "    " + chatDate + "\n\n\n");
 
             mScrollView.fullScroll(ScrollView.FOCUS_DOWN);
         }
