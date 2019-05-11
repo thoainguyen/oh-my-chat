@@ -47,20 +47,25 @@
 
         <EditText
             android:id="@+id/input_group_message"
-            android:layout_width="355dp"
+            android:layout_width="0dp"
+            android:layout_weight="1"
             android:layout_height="wrap_content"
+            android:maxLines="1"
             android:hint="Message..."
             android:padding="17dp" />
 
         <ImageButton
             android:id="@+id/send_message_button"
-            android:layout_width="60dp"
-            android:layout_height="60dp"
+            android:layout_width="64dp"
+            android:layout_height="48dp"
             android:scaleType="fitCenter"
             android:background="@drawable/send_button"
             android:scaleX="0.7"
             android:scaleY="0.7"
             android:tint="@color/colorMyMessage"
-            android:src="@drawable/send" />
+            android:src="@drawable/send"
+            android:layout_gravity="bottom"
+            android:clickable="true"
+            />
     </LinearLayout>
 </RelativeLayout>

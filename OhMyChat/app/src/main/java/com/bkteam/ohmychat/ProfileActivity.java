@@ -94,8 +94,6 @@ public class ProfileActivity extends AppCompatActivity {
 
     }
 
-
-
     private void SendChatRequest() {
         if(sendMessageRequestButton.getText().equals("Cancel Invited")){
             chatRequestRef.child(senderUserId).child(receiverUserId)
