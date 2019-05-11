@@ -13,8 +13,7 @@
         android:layout_alignParentTop="true"
         android:layout_alignParentEnd="true"
         android:cropToPadding="true"
-        android:layout_marginTop="1dp"
-        />
+        android:layout_marginTop="1dp" />
     
     <TextView
         android:id="@+id/custom_profile_name"
@@ -25,7 +24,5 @@
         android:layout_marginTop="5dp"
         android:textSize="24sp"
         android:textStyle="bold"/>
-
-
 
 </RelativeLayout>
