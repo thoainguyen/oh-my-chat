@@ -22,6 +22,8 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
+import org.w3c.dom.Text;
+
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.HashMap;
@@ -112,10 +114,14 @@ public class GroupChatActivity extends AppCompatActivity {
             String chatMessage = (String)((DataSnapshot)iterator.next()).getValue();
             String chatName = (String)((DataSnapshot)iterator.next()).getValue();
             String chatTime = (String)((DataSnapshot)iterator.next()).getValue();
-
-            displayTextMessages.append(Html.fromHtml("<font color= blue>" + chatName + "</font>" + " :" + "<br>" + chatMessage + "<br>" +
-                     "<i>" + chatTime + "    " + chatDate + "</i>" + "<br><br><br>"));
-
+            if (currentUserName.equals(chatName)) {
+                displayTextMessages.append(Html.fromHtml("<div><font color= blue>" + chatName + "</font>" + " :" + "<br>" + chatMessage + "<br>" +
+                        "<i>" + chatTime + "    " + chatDate + "</i>" + "<br><br><br> </div>"));
+            }
+            else {
+                displayTextMessages.append(Html.fromHtml("<div><font color= red>" + chatName + "</font>" + " :" + "<br>" + chatMessage + "<br>" +
+                        "<i>" + chatTime + "    " + chatDate + "</i>" + "<br><br><br> </div>"));
+            }
             mScrollView.fullScroll(ScrollView.FOCUS_DOWN);
         }
     }
