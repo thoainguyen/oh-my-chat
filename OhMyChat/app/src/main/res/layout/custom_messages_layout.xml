@@ -1,41 +1,54 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content">
-    
-    <de.hdodenhof.circleimageview.CircleImageView
-        android:id="@+id/message_profile_image"
-        android:layout_width="45dp"
-        android:layout_height="45dp"
-        android:layout_marginTop="10dp"
-        android:src="@drawable/profile_image"/>
-    
-    <TextView
-        android:id="@+id/receiver_message_text"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:layout_marginTop="10dp"
-        android:layout_toEndOf="@+id/message_profile_image"
-        android:background="@drawable/receiver_messages_layout"
-        android:text="receiver messages here"
-        android:padding="10dp"
-        android:textSize="14sp"
-        android:textColor="@android:color/black"/>
+        android:gravity="start"
+        android:orientation="horizontal"
+        android:paddingRight="110dp">
 
-    <TextView
-        android:id="@+id/sender_message_text"
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/message_profile_image"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_marginTop="10dp"
+            android:src="@drawable/profile_image" />
+
+        <TextView
+            android:id="@+id/receiver_message_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/receiver_messages_layout"
+            android:padding="5dp"
+            android:text="receiver messages here messages here messages here messages here messages here messages here messages here"
+            android:textColor="@android:color/black"
+            android:textSize="16sp" />
+    </LinearLayout>
+
+    <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentTop="@+id/receiver_message_text"
-        android:layout_alignParentEnd="true"
-        android:layout_marginTop="10dp"
-        android:layout_marginEnd="12dp"
-        android:background="@drawable/sender_messages_layout"
-        android:padding="10dp"
-        android:text="sender messages"
-        android:textColor="@android:color/black"
-        android:textSize="14sp"/>
+        android:layout_gravity="end"
+        android:paddingStart="@android:dimen/app_icon_size">
 
-</RelativeLayout>
+        <TextView
+            android:id="@+id/sender_message_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:layout_marginEnd="15dp"
+            android:layout_weight="1"
+            android:background="@drawable/sender_messages_layout"
+            android:padding="10dp"
+            android:text="sender messages messages here messages here messages here messages here messages here messages here messages here messages here"
+            android:textColor="@android:color/black"
+            android:textSize="16sp" />
+    </LinearLayout>
+
+
+</LinearLayout>

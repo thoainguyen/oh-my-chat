@@ -38,8 +38,7 @@ import de.hdodenhof.circleimageview.CircleImageView;
 
 public class ChatActivity extends AppCompatActivity {
 
-    private String messageReceiverID, messageReceiverName,
-            messageReceiverImage, messageSenderID;
+    private String messageReceiverID, messageReceiverName, messageReceiverImage, messageSenderID;
     private TextView userName;
     private CircleImageView userImage;
     private Toolbar chatToolBar;
@@ -124,14 +123,13 @@ public class ChatActivity extends AppCompatActivity {
         }
     }
 
-
-
     private void InitializeControllers() {
         chatToolBar = (Toolbar)findViewById(R.id.chat_toolbar);
 
         setSupportActionBar(chatToolBar);
 
         ActionBar actionBar = getSupportActionBar();
+        assert actionBar != null;
         actionBar.setDisplayHomeAsUpEnabled(true);
         actionBar.setDisplayShowCustomEnabled(true);
         LayoutInflater layoutInflater = (LayoutInflater)this.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
