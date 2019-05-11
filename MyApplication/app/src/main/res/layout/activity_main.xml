@@ -1,0 +1,25 @@
+<RelativeLayout android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+    <Button
+        android:id="@+id/button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Location"/>
+    <TextView
+        android:id="@+id/tw01"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginTop="50dp"
+        android:layout_alignParentTop="@id/button"
+        android:hint="Oxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
+        />
+    <TextView
+        android:id="@+id/tw02"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginTop="150dp"
+        android:layout_alignParentTop="@id/tw01"
+        android:hint="Oyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyy"
+        />
+</RelativeLayout>
