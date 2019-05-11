@@ -19,7 +19,7 @@
         android:layout_marginTop="70dp"
         android:src="@drawable/profile_image"
         android:layout_marginBottom="10dp"
-        app:civ_border_width="5dp"
+        app:civ_border_width="2dp"
         app:civ_border_color="@color/colorPrimary"/>
 
 
@@ -32,6 +32,8 @@
         android:hint="username"
         android:textAlignment="center"
         android:drawableStart="@drawable/edit_profile"
+        android:drawableTint="@color/colorPrimaryDark"
+        android:textColorHint="@color/colorPrimaryLight"
         android:textColor="@color/colorPrimaryDark"
         android:textStyle="bold"
         android:background="@drawable/inputs"
@@ -46,6 +48,8 @@
         android:id="@+id/set_profile_status"
         android:layout_below="@+id/set_user_name"
         android:inputType="textMultiLine"
+        android:drawableTint="@color/colorPrimaryDark"
+        android:textColorHint="@color/colorPrimaryLight"
         android:hint="Hey, I am available now."
         android:textAlignment="center"
         android:drawableStart="@drawable/edit_status"
