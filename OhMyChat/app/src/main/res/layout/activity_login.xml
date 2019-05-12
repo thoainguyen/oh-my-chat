@@ -27,7 +27,7 @@
                 android:layout_marginTop="10dp"
                 android:scaleY="1"
                 android:scaleType="centerInside"
-                android:src="@drawable/logo" />
+                android:src="@drawable/coverImage" />
 
             <EditText
                 android:id="@+id/login_email"
@@ -38,8 +38,8 @@
                 android:inputType="textEmailAddress"
                 android:background="@drawable/inputs"
                 android:drawableTint="@color/colorPrimary"
-                android:textColorHint="@color/colorPrimaryLight"
-                android:textColor="@color/colorPrimary"
+                android:textColorHint="@color/colorPrimary"
+                android:textColor="@color/colorPrimaryDark"
                 android:padding="4dp"
                 android:drawableStart="@drawable/email"
                 android:layout_marginTop="25dp"
@@ -54,8 +54,8 @@
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/login_email"
                 android:drawableTint="@color/colorPrimary"
-                android:textColorHint="@color/colorPrimaryLight"
-                android:textColor="@color/colorPrimary"
+                android:textColorHint="@color/colorPrimary"
+                android:textColor="@color/colorPrimaryDark"
                 android:hint="@string/password"
                 android:inputType="textPassword"
                 android:padding="4dp"
