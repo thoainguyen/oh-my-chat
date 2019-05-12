@@ -7,8 +7,10 @@ import android.os.Bundle;
 import android.text.Html;
 import android.text.TextUtils;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.ImageButton;
+import android.widget.ListView;
 import android.widget.ScrollView;
 import android.widget.TextView;
 import android.support.v7.widget.Toolbar;
@@ -25,9 +27,11 @@ import com.google.firebase.database.ValueEventListener;
 import org.w3c.dom.Text;
 
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.HashMap;
 import java.util.Iterator;
+import java.util.LinkedList;
 
 
 public class GroupChatActivity extends AppCompatActivity {
@@ -35,12 +39,17 @@ public class GroupChatActivity extends AppCompatActivity {
     private Toolbar mToolbar;
     private ImageButton sendMessageButton;
     private EditText userMessageInput;
-    private ScrollView mScrollView;
-    private TextView displayTextMessages;
+//    private ScrollView mScrollView;
+    private ListView displayTextMessages;
     private DatabaseReference userRef, groupNameRef, groupMessageKeyRef;
 
     private FirebaseAuth mAuth;
     private String currentGroupName, currentUserID, currentUserName, currentDate, currentTime;
+
+    //Test list view
+    ArrayList<GroupMess> listItems;
+    private static GroupAdapter adapter;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -65,7 +74,7 @@ public class GroupChatActivity extends AppCompatActivity {
             public void onClick(View v) {
                 SaveMessageInfoToDatabase();
                 userMessageInput.setText("");
-                mScrollView.fullScroll(ScrollView.FOCUS_DOWN);
+//                mScrollView.fullScroll(ScrollView.FOCUS_DOWN);
             }
 
         });
@@ -108,22 +117,22 @@ public class GroupChatActivity extends AppCompatActivity {
 
     private void DisplayMessages(DataSnapshot dataSnapshot) {
         Iterator iterator = dataSnapshot.getChildren().iterator();
-
         while(iterator.hasNext()){
             String chatDate = (String)((DataSnapshot)iterator.next()).getValue();
             String chatMessage = (String)((DataSnapshot)iterator.next()).getValue();
             String chatName = (String)((DataSnapshot)iterator.next()).getValue();
             String chatTime = (String)((DataSnapshot)iterator.next()).getValue();
             if (currentUserName.equals(chatName)) {
-                displayTextMessages.append(Html.fromHtml("<div><font color= blue>" + chatName + "</font>" + " :" + "<br>" + chatMessage + "<br>" +
-                        "<i>" + chatTime + "    " + chatDate + "</i>" + "<br><br><br> </div>"));
+
+                listItems.add(new GroupMess("","","","",chatMessage,chatDate,chatTime));
             }
             else {
-                displayTextMessages.append(Html.fromHtml("<div><font color= red>" + chatName + "</font>" + " :" + "<br>" + chatMessage + "<br>" +
-                        "<i>" + chatTime + "    " + chatDate + "</i>" + "<br><br><br> </div>"));
+                listItems.add(new GroupMess("",chatMessage,chatDate,chatTime,"","",""));
             }
-            mScrollView.fullScroll(ScrollView.FOCUS_DOWN);
         }
+
+        adapter = new GroupAdapter(listItems,getApplicationContext());
+        displayTextMessages.setAdapter(adapter);
     }
 
 
@@ -179,10 +188,10 @@ public class GroupChatActivity extends AppCompatActivity {
         mToolbar = (Toolbar)findViewById(R.id.group_chat_bar_layout);
         setSupportActionBar(mToolbar);
         getSupportActionBar().setTitle(currentGroupName);
-
+        listItems = new ArrayList<GroupMess>();
         sendMessageButton = (ImageButton)findViewById(R.id.send_message_button);
         userMessageInput = (EditText)findViewById(R.id.input_group_message);
-        displayTextMessages = (TextView)findViewById(R.id.group_chat_text_display);
-        mScrollView = (ScrollView)findViewById(R.id.my_scroll_view);
+        displayTextMessages = (ListView) findViewById(R.id.group_chat_text_display);
+//        mScrollView = (ScrollView)findViewById(R.id.my_scroll_view);
     }
 }
