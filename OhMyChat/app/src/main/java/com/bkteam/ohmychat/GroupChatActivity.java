@@ -72,9 +72,9 @@ public class GroupChatActivity extends AppCompatActivity {
         sendMessageButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                displayTextMessages.setTranscriptMode(ListView.TRANSCRIPT_MODE_ALWAYS_SCROLL);
                 SaveMessageInfoToDatabase();
                 userMessageInput.setText("");
-//                mScrollView.fullScroll(ScrollView.FOCUS_DOWN);
             }
 
         });
@@ -132,8 +132,8 @@ public class GroupChatActivity extends AppCompatActivity {
         }
 
         adapter = new GroupAdapter(listItems,getApplicationContext());
-        displayTextMessages.setTranscriptMode(ListView.TRANSCRIPT_MODE_ALWAYS_SCROLL);
         displayTextMessages.setAdapter(adapter);
+        displayTextMessages.setTranscriptMode(ListView.TRANSCRIPT_MODE_ALWAYS_SCROLL);
     }
 
 
@@ -193,5 +193,6 @@ public class GroupChatActivity extends AppCompatActivity {
         sendMessageButton = (ImageButton)findViewById(R.id.send_message_button);
         userMessageInput = (EditText)findViewById(R.id.input_group_message);
         displayTextMessages = (ListView) findViewById(R.id.group_chat_text_display);
+        displayTextMessages.setStackFromBottom(true);
     }
 }

@@ -6,10 +6,7 @@
     android:layout_height="match_parent"
     tools:context=".GroupChatActivity">
 
-    <include
-        android:id="@+id/group_chat_bar_layout"
-        layout="@layout/app_bar_layout">
-    </include>
+
 
     <!--<ScrollView-->
         <!--android:id="@+id/my_scroll_view"-->
@@ -24,6 +21,11 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="vertical">
+
+            <include
+                android:id="@+id/group_chat_bar_layout"
+                layout="@layout/app_bar_layout">
+            </include>
 
             <ListView
                 android:id="@+id/group_chat_text_display"
