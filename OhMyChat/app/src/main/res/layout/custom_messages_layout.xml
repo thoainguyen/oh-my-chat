@@ -26,6 +26,14 @@
         android:textColor="@android:color/black"/>
 
     <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_alignParentTop="true"
+        android:layout_toEndOf="@+id/receiver_message_text"
+        android:text="11:45"
+        android:textSize="10dp"/>
+
+    <TextView
         android:id="@+id/sender_message_text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
