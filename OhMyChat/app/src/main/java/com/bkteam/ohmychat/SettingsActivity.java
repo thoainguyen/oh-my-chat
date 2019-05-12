@@ -165,7 +165,7 @@ public class SettingsActivity extends AppCompatActivity {
         setSupportActionBar(settingsToolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setDisplayShowHomeEnabled(true);
-        getSupportActionBar().setTitle("Account Settings");
+        getSupportActionBar().setTitle(R.string.account_settings);
     }
 
     @Override
@@ -185,7 +185,7 @@ public class SettingsActivity extends AppCompatActivity {
             CropImage.ActivityResult result = CropImage.getActivityResult(data);
             if (resultCode == RESULT_OK) {
 
-                loadingBar.setTitle("Set profile image");
+                loadingBar.setTitle(R.string.set_profile_image);
                 loadingBar.setMessage("Please wait, your profile image is uploading");
                 loadingBar.setCanceledOnTouchOutside(false);
                 loadingBar.show();

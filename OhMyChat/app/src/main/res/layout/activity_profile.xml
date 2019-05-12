@@ -57,7 +57,7 @@
         android:background="@drawable/buttons"
         android:textStyle="bold"
         android:textSize="20sp"
-        android:text="Add Friend"
+        android:text="@string/add_friend"
         android:textAllCaps="false"/>
 
 

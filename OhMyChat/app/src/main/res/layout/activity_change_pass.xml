@@ -27,7 +27,7 @@
                 android:layout_marginTop="10dp"
                 android:scaleY="1"
                 android:scaleType="centerInside"
-                android:src="@drawable/logo" />
+                android:src="@drawable/cover_image" />
 
             <EditText
                 android:id="@+id/change_pass_email"

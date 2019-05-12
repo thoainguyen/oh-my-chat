@@ -1,22 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
-    <item android:title="Find Friends"
+    <item android:title="@string/find_friend"
         android:id="@+id/main_find_friends_option"
         app:showAsAction="never">
     </item>
 
-    <item android:title="Create Group"
+    <item android:title="@string/create_group"
         android:id="@+id/main_create_group_option"
         app:showAsAction="never">
     </item>
 
-    <item android:title="Settings"
+    <item android:title="@string/profile"
         android:id="@+id/main_settings_option"
         app:showAsAction="never">
     </item>
 
-    <item android:title="Logout"
+    <item android:title="@string/log_out"
         android:id="@+id/main_logout_option"
         app:showAsAction="never">
     </item>

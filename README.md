@@ -11,10 +11,12 @@ This app is developed using:
 * Authentication
     * Create account
     * Sign in
+    * Reset password by email
 
 * Profile
     * Upload avatar
     * Change name and status
+    * Change password
     
 * Messaging
     * Chat with other users

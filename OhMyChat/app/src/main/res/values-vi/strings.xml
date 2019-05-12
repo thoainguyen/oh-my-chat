@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">OhMyChat</string>
+    <string name="login">Đăng nhập</string>
+    <string name="password">Nhập mật khẩu</string>
+    <string name="email">Nhập email</string>
+    <string name="signup">Tạo tài khoản</string>
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="phone">Phone</string>
+    <string name="display_name">Display User Name</string>
+    <string name="message">Nhập tin nhắn...</string>
+    <string name="add_friend">Kết bạn</string>
+    <string name="need_account">Chưa có tài khoản?</string>
+    <string name="find_friend">Tìm kiếm bạn bè</string>
+    <string name="create_group">Tạo group chat</string>
+    <string name="profile">Trang cá nhân</string>
+    <string name="log_out">Đăng xuất</string>
+    <string name="already_have_account">Bạn đã có tài khoản?</string>
+    <string name="new_password">Nhập mật khẩu mới</string>
+    <string name="old_password">Nhập mật khẩu cũ</string>
+    <string name="update">Cập nhật</string>
+    <string name="change_password">Thay đổi mật khẩu</string>
+    <string name="username">Tên hiển thị</string>
+    <string name="default_status">Giao lưu kết bạn nhé</string>
+    <string name="cancel_invite">Hủy kết bạn</string>
+    <string name="wanna_connect">muốn kết bạn với bạn.</string>
+    <string name="req_sent">Đã gửi</string>
+    <string name="sent_req_to">"Bạn đã gửi yêu cầu đến "</string>
+    <string name="enter_group_name">Nhập tên nhóm :</string>
+    <string name="account_settings">Điều chỉnh tài khoản</string>
+    <string name="set_profile_image">Đặt ảnh đại diện</string>
+    <string name="please_wait">Vui lòng chờ</string>
+    <string name="logging_in">Đang đăng nhập</string>
+    <string name="chats">Chats</string>
+</resources>

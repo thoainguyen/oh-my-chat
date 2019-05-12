@@ -95,7 +95,7 @@ public class RequestsFragment extends Fragment {
                                                 final String requestUserName = dataSnapshot.child("name").getValue().toString();
                                                 final String requestUserStatus = dataSnapshot.child("status").getValue().toString();
                                                 holder.userName.setText(requestUserName);
-                                                holder.userStatus.setText("Wants to connect with you.");
+                                                holder.userStatus.setText(R.string.wanna_connect);
 
                                                 //test onClick Button accept or decline
                                                 holder.itemView.findViewById(R.id.requests_accept_btn)
@@ -244,7 +244,7 @@ public class RequestsFragment extends Fragment {
                                     }
                                     else if(type.equals("sent")){
                                         Button requestSendBtn = holder.itemView.findViewById(R.id.requests_accept_btn);
-                                        requestSendBtn.setText("Req Sent");
+                                        requestSendBtn.setText(R.string.req_sent);
                                         holder.itemView.findViewById(R.id.requests_cancel_btn).setVisibility(View.INVISIBLE);
                                         userRef.child(listUserId).addValueEventListener(new ValueEventListener() {
                                             @Override
@@ -257,7 +257,7 @@ public class RequestsFragment extends Fragment {
                                                 final String requestUserName = dataSnapshot.child("name").getValue().toString();
                                                 final String requestUserStatus = dataSnapshot.child("status").getValue().toString();
                                                 holder.userName.setText(requestUserName);
-                                                holder.userStatus.setText("You have sent a request to " + requestUserName);
+                                                holder.userStatus.setText(R.string.sent_req_to + requestUserName);
 
                                                 holder.itemView.setOnClickListener(new View.OnClickListener() {
                                                     @Override
