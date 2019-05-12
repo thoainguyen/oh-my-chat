@@ -127,11 +127,12 @@ public class GroupChatActivity extends AppCompatActivity {
                 listItems.add(new GroupMess("","","","",chatMessage,chatDate,chatTime));
             }
             else {
-                listItems.add(new GroupMess("",chatMessage,chatDate,chatTime,"","",""));
+                listItems.add(new GroupMess(chatName,chatMessage,chatDate,chatTime,"","",""));
             }
         }
 
         adapter = new GroupAdapter(listItems,getApplicationContext());
+        displayTextMessages.setTranscriptMode(ListView.TRANSCRIPT_MODE_ALWAYS_SCROLL);
         displayTextMessages.setAdapter(adapter);
     }
 
@@ -192,6 +193,5 @@ public class GroupChatActivity extends AppCompatActivity {
         sendMessageButton = (ImageButton)findViewById(R.id.send_message_button);
         userMessageInput = (EditText)findViewById(R.id.input_group_message);
         displayTextMessages = (ListView) findViewById(R.id.group_chat_text_display);
-//        mScrollView = (ScrollView)findViewById(R.id.my_scroll_view);
     }
 }

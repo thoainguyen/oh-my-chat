@@ -7,6 +7,8 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.TextView;
 
+import org.w3c.dom.Text;
+
 import java.util.ArrayList;
 
 import de.hdodenhof.circleimageview.CircleImageView;
@@ -17,6 +19,7 @@ public class GroupAdapter extends ArrayAdapter<GroupMess> {
 
     private static class ViewHolder{
         CircleImageView receiverAvt;
+        TextView    receiverName;
         TextView    receiverMess;
         TextView    receiverTime;
         TextView    senderMess;
@@ -41,6 +44,8 @@ public class GroupAdapter extends ArrayAdapter<GroupMess> {
             viewHolder = new ViewHolder();
             LayoutInflater inflater = LayoutInflater.from(getContext());
             convertView = inflater.inflate(R.layout.item_message_group,parent,false);
+            viewHolder.receiverAvt = (CircleImageView)convertView.findViewById(R.id.image_message_profile);
+            viewHolder.receiverName = (TextView)convertView.findViewById(R.id.text_message_name);
             viewHolder.receiverMess = (TextView)convertView.findViewById(R.id.text_message_receiver);
             viewHolder.receiverTime = (TextView)convertView.findViewById(R.id.text_message_time_receiver);
             viewHolder.senderMess = (TextView)convertView.findViewById(R.id.text_message_send);
@@ -51,12 +56,32 @@ public class GroupAdapter extends ArrayAdapter<GroupMess> {
             viewHolder = (ViewHolder) convertView.getTag();
             result=convertView;
         }
-        
+
         lastPosition = position;
-        viewHolder.receiverMess.setText(groupMess.getRe_mess());
-        viewHolder.receiverTime.setText(groupMess.getRe_date()+ groupMess.getRe_time());
-        viewHolder.senderMess.setText(groupMess.getSe_mess());
-        viewHolder.senderTime.setText(groupMess.getSe_date()+groupMess.getSe_time());
+
+        viewHolder.receiverAvt.setVisibility(View.INVISIBLE);
+        viewHolder.receiverName.setVisibility(View.INVISIBLE);
+        viewHolder.receiverMess.setVisibility(View.INVISIBLE);
+        viewHolder.receiverTime.setVisibility(View.INVISIBLE);
+        viewHolder.senderMess.setVisibility(View.INVISIBLE);
+        viewHolder.senderTime.setVisibility(View.INVISIBLE);
+
+        if (groupMess.getSe_mess().equals("")){
+            viewHolder.receiverName.setVisibility(View.VISIBLE);
+            viewHolder.receiverAvt.setVisibility(View.VISIBLE);
+            viewHolder.receiverMess.setVisibility(View.VISIBLE);
+            viewHolder.receiverTime.setVisibility(View.VISIBLE);
+            viewHolder.receiverName.setText(groupMess.getRe_name());
+            viewHolder.receiverMess.setText(groupMess.getRe_mess());
+            viewHolder.receiverTime.setText(groupMess.getRe_date()+ groupMess.getRe_time());
+        }
+        else {
+            viewHolder.senderMess.setVisibility(View.VISIBLE);
+            viewHolder.senderTime.setVisibility(View.VISIBLE);
+            viewHolder.senderMess.setText(groupMess.getSe_mess());
+            viewHolder.senderTime.setText(groupMess.getSe_date()+groupMess.getSe_time());
+        }
+
         return convertView;
     }
 }

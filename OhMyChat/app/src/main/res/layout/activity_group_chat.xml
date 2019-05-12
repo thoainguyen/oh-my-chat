@@ -35,7 +35,10 @@
                 android:padding="10dp"
                 android:textAllCaps="false"
                 android:textColor="@android:color/background_dark"
-                android:textSize="20sp" />
+                android:textSize="20sp"
+                android:listSelector="@android:color/transparent"
+                android:divider="@null"
+                android:dividerHeight="0dp"/>
         </LinearLayout>
     <!--</ScrollView>-->
 
