@@ -26,12 +26,7 @@
                 android:layout_alignParentTop="true"
                 android:layout_marginTop="10dp"
                 android:scaleType="centerInside"
-<<<<<<< HEAD
                 android:src="@drawable/cover_image" />
-=======
-                android:scaleY="1"
-                android:src="@drawable/logo" />
->>>>>>> 5b90ba3bed49c74ed0bdab5d7284b1e4c849e3cb
 
             <EditText
                 android:id="@+id/login_email"
@@ -44,16 +39,11 @@
                 android:background="@drawable/inputs"
                 android:drawableStart="@drawable/email"
                 android:drawableTint="@color/colorPrimary"
-<<<<<<< HEAD
-                android:textColorHint="@color/colorPrimary"
-                android:textColor="@color/colorPrimaryDark"
-=======
                 android:hint="@string/email"
                 android:inputType="textEmailAddress"
->>>>>>> 5b90ba3bed49c74ed0bdab5d7284b1e4c849e3cb
                 android:padding="4dp"
                 android:textColor="@color/colorPrimary"
-                android:textColorHint="@color/colorPrimaryLight"
+                android:textColorHint="@color/colorPrimaryDark"
                 android:textCursorDrawable="@drawable/pink_cursor" />
 
             <EditText
@@ -67,16 +57,11 @@
                 android:background="@drawable/inputs"
                 android:drawableStart="@drawable/password"
                 android:drawableTint="@color/colorPrimary"
-<<<<<<< HEAD
                 android:textColorHint="@color/colorPrimary"
                 android:textColor="@color/colorPrimaryDark"
-=======
->>>>>>> 5b90ba3bed49c74ed0bdab5d7284b1e4c849e3cb
                 android:hint="@string/password"
                 android:inputType="textPassword"
                 android:padding="4dp"
-                android:textColor="@color/colorPrimary"
-                android:textColorHint="@color/colorPrimaryLight"
                 android:textCursorDrawable="@drawable/pink_cursor" />
 
 
@@ -101,15 +86,10 @@
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/login_button"
                 android:layout_alignParentStart="true"
-<<<<<<< HEAD
-                android:text="@string/need_account"
-                android:layout_marginTop="2dp"
-=======
->>>>>>> 5b90ba3bed49c74ed0bdab5d7284b1e4c849e3cb
                 android:layout_marginLeft="15dp"
                 android:layout_marginTop="5dp"
                 android:layout_marginRight="23dp"
-                android:text="Need new Account?"
+                android:text="@string/need_new_account"
                 android:textAlignment="center"
                 android:textColor="@color/colorPrimaryDark"
                 android:textSize="17sp"
