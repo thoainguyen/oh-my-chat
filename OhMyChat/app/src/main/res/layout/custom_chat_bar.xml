@@ -1,28 +1,28 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
+<LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="@color/colorPrimary">
+    android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/custom_profile_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:layout_marginEnd="2dp"
+        android:layout_weight="3"
+        android:text="@string/display_name"
+        android:textColor="@android:color/background_light"
+        android:textSize="20sp"
+        android:textStyle="bold" />
 
     <de.hdodenhof.circleimageview.CircleImageView
         android:id="@+id/custom_profile_image"
         android:layout_width="47dp"
         android:layout_height="47dp"
-        android:src="@drawable/profile_image"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentEnd="true"
+        android:layout_marginTop="1dp"
+        android:layout_weight="1"
         android:cropToPadding="true"
-        android:layout_marginTop="1dp" />
-    
-    <TextView
-        android:id="@+id/custom_profile_name"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Display User Name"
-        android:textColor="@android:color/background_light"
-        android:layout_marginTop="5dp"
-        android:textSize="24sp"
-        android:textStyle="bold"/>
+        android:src="@drawable/profile_image" />
 
-</RelativeLayout>
+</LinearLayout>

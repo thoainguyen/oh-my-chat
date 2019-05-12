@@ -29,7 +29,9 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import com.squareup.picasso.Picasso;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -38,12 +40,14 @@ import de.hdodenhof.circleimageview.CircleImageView;
 
 public class ChatActivity extends AppCompatActivity {
 
+    private Toolbar chatToolBar;
     private String messageReceiverID, messageReceiverName, messageReceiverImage, messageSenderID;
     private TextView userName;
     private CircleImageView userImage;
-    private Toolbar chatToolBar;
+
     private ImageButton sendMessageBtn;
     private EditText messageInputText;
+
     private FirebaseAuth mAuth;
     private DatabaseReference rootRef;
 
@@ -52,6 +56,7 @@ public class ChatActivity extends AppCompatActivity {
     private MessageAdapter messageAdapter;
     private RecyclerView userMessagesList;
 
+    private String currentTime;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -88,6 +93,10 @@ public class ChatActivity extends AppCompatActivity {
             Toast.makeText(this, "first write your message...", Toast.LENGTH_LONG).show();
         }
         else {
+            Calendar calForTime = Calendar.getInstance();
+            SimpleDateFormat currentTimeFormat = new SimpleDateFormat("hh:mm a");
+            currentTime = currentTimeFormat.format(calForTime.getTime());
+
             String messageSenderRef = "Messages/" + messageSenderID + "/" + messageReceiverID;
             String messageReceiverRef = "Messages/" + messageReceiverID + "/" + messageSenderID;
 
