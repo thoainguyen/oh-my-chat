@@ -48,9 +48,6 @@
             android:tint="@color/colorMyMessage"
             android:src="@drawable/send"
             android:layout_gravity="bottom"
-            android:clickable="true"
-            />
-
+            android:clickable="true"/>
     </LinearLayout>
-
 </RelativeLayout>

@@ -6,17 +6,6 @@
     android:layout_height="match_parent"
     tools:context=".GroupChatActivity">
 
-
-
-    <!--<ScrollView-->
-        <!--android:id="@+id/my_scroll_view"-->
-        <!--android:layout_width="match_parent"-->
-        <!--android:layout_height="wrap_content"-->
-        <!--android:layout_above="@+id/my_linear_layout"-->
-        <!--android:layout_below="@+id/group_chat_bar_layout"-->
-        <!--android:layout_alignParentStart="true"-->
-        <!--android:layout_marginStart="0dp">-->
-
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
@@ -42,7 +31,6 @@
                 android:divider="@null"
                 android:dividerHeight="0dp"/>
         </LinearLayout>
-    <!--</ScrollView>-->
 
     <LinearLayout
         android:id="@+id/my_linear_layout"
