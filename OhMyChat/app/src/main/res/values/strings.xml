@@ -8,4 +8,12 @@
     <string name="phone">Phone</string>
     <string name="signup">Create Account</string>
     <string name="display_name">Display User Name</string>
+    <string name="message">Message...</string>
+    <string name="add_friend">Add friend</string>
+    <string name="need_account">Need an account?</string>
+    <string name="find_friend">Find friends</string>
+    <string name="create_group">Create a group chat</string>
+    <string name="profile">Profile</string>
+    <string name="log_out">Log out</string>
+    <string name="already_have_account">Already have an account?</string>
 </resources>
