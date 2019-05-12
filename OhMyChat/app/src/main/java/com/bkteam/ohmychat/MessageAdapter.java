@@ -86,7 +86,7 @@ public class MessageAdapter extends RecyclerView.Adapter<MessageAdapter.MessageV
 
             if(fromUserID.equals(messageSenderID)){
                 messageViewHolder.senderMessageText.setVisibility(View.VISIBLE);
-                messageViewHolder.senderMessageText.setBackgroundResource(R.drawable.rounded_rectangle_green);
+                messageViewHolder.senderMessageText.setBackgroundResource(R.drawable.sender_messages_layout);
                 messageViewHolder.senderMessageText.setTextColor(Color.BLACK);
                 messageViewHolder.senderMessageText.setText(messages.getMessage());
                 messageViewHolder.senderTimeText.setVisibility(View.VISIBLE);
@@ -97,7 +97,7 @@ public class MessageAdapter extends RecyclerView.Adapter<MessageAdapter.MessageV
                 messageViewHolder.receiverMessageText.setVisibility(View.VISIBLE);
                 messageViewHolder.receiverTimeText.setVisibility(View.VISIBLE);
                 messageViewHolder.receiverTimeText.setText(messages.getTime());
-                messageViewHolder.receiverMessageText.setBackgroundResource(R.drawable.rounded_rectangle_orange);
+                messageViewHolder.receiverMessageText.setBackgroundResource(R.drawable.receiver_messages_layout);
                 messageViewHolder.receiverMessageText.setTextColor(Color.BLACK);
                 messageViewHolder.receiverMessageText.setText(messages.getMessage());
             }
