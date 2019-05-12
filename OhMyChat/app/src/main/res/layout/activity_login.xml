@@ -19,7 +19,7 @@
 
 
             <ImageView
-                android:id="@+id/change_pass_image"
+                android:id="@+id/login_image"
                 android:layout_width="match_parent"
                 android:layout_height="250dp"
                 android:layout_alignParentStart="true"
@@ -30,10 +30,10 @@
                 android:src="@drawable/logo" />
 
             <EditText
-                android:id="@+id/change_pass_email"
+                android:id="@+id/login_email"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/change_pass_image"
+                android:layout_below="@+id/login_image"
                 android:hint="@string/email"
                 android:inputType="textEmailAddress"
                 android:background="@drawable/inputs"
@@ -49,10 +49,10 @@
                 />
 
             <EditText
-                android:id="@+id/change_pass_password"
+                android:id="@+id/login_password"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/change_pass_email"
+                android:layout_below="@+id/login_email"
                 android:drawableTint="@color/colorPrimary"
                 android:textColorHint="@color/colorPrimaryLight"
                 android:textColor="@color/colorPrimary"
@@ -70,10 +70,10 @@
 
 
             <Button
-                android:id="@+id/change_pass_button"
+                android:id="@+id/login_button"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/change_pass_password"
+                android:layout_below="@+id/login_password"
                 android:text="@string/login"
                 android:padding="4dp"
                 android:layout_marginTop="10dp"
@@ -89,7 +89,7 @@
                 android:id="@+id/need_new_account_link"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/change_pass_button"
+                android:layout_below="@+id/login_button"
                 android:layout_alignParentStart="true"
                 android:text="Need new Account ?"
                 android:layout_marginTop="2dp"
