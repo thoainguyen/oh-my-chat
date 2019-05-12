@@ -25,48 +25,59 @@
                 android:layout_alignParentStart="true"
                 android:layout_alignParentTop="true"
                 android:layout_marginTop="10dp"
-                android:scaleY="1"
                 android:scaleType="centerInside"
+<<<<<<< HEAD
                 android:src="@drawable/cover_image" />
+=======
+                android:scaleY="1"
+                android:src="@drawable/logo" />
+>>>>>>> 5b90ba3bed49c74ed0bdab5d7284b1e4c849e3cb
 
             <EditText
                 android:id="@+id/login_email"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/login_image"
-                android:hint="@string/email"
-                android:inputType="textEmailAddress"
+                android:layout_marginLeft="17dp"
+                android:layout_marginTop="25dp"
+                android:layout_marginRight="17dp"
                 android:background="@drawable/inputs"
+                android:drawableStart="@drawable/email"
                 android:drawableTint="@color/colorPrimary"
+<<<<<<< HEAD
                 android:textColorHint="@color/colorPrimary"
                 android:textColor="@color/colorPrimaryDark"
+=======
+                android:hint="@string/email"
+                android:inputType="textEmailAddress"
+>>>>>>> 5b90ba3bed49c74ed0bdab5d7284b1e4c849e3cb
                 android:padding="4dp"
-                android:drawableStart="@drawable/email"
-                android:layout_marginTop="25dp"
-                android:layout_marginLeft="17dp"
-                android:layout_marginRight="17dp"
-                android:textCursorDrawable="@drawable/pink_cursor"
-                />
+                android:textColor="@color/colorPrimary"
+                android:textColorHint="@color/colorPrimaryLight"
+                android:textCursorDrawable="@drawable/pink_cursor" />
 
             <EditText
                 android:id="@+id/login_password"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/login_email"
+                android:layout_marginLeft="17dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginRight="17dp"
+                android:background="@drawable/inputs"
+                android:drawableStart="@drawable/password"
                 android:drawableTint="@color/colorPrimary"
+<<<<<<< HEAD
                 android:textColorHint="@color/colorPrimary"
                 android:textColor="@color/colorPrimaryDark"
+=======
+>>>>>>> 5b90ba3bed49c74ed0bdab5d7284b1e4c849e3cb
                 android:hint="@string/password"
                 android:inputType="textPassword"
                 android:padding="4dp"
-                android:drawableStart="@drawable/password"
-                android:background="@drawable/inputs"
-                android:layout_marginTop="10dp"
-                android:layout_marginLeft="17dp"
-                android:layout_marginRight="17dp"
-                android:textCursorDrawable="@drawable/pink_cursor"
-                />
-
+                android:textColor="@color/colorPrimary"
+                android:textColorHint="@color/colorPrimaryLight"
+                android:textCursorDrawable="@drawable/pink_cursor" />
 
 
             <Button
@@ -74,16 +85,15 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/login_password"
-                android:text="@string/login"
-                android:padding="4dp"
-                android:layout_marginTop="10dp"
                 android:layout_marginLeft="17dp"
+                android:layout_marginTop="10dp"
                 android:layout_marginRight="17dp"
-                android:textSize="24sp"
+                android:background="@drawable/buttons"
+                android:padding="4dp"
+                android:text="@string/login"
                 android:textAllCaps="false"
                 android:textColor="@android:color/background_light"
-                android:background="@drawable/buttons"
-                />
+                android:textSize="24sp" />
 
             <TextView
                 android:id="@+id/need_new_account_link"
@@ -91,15 +101,34 @@
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/login_button"
                 android:layout_alignParentStart="true"
+<<<<<<< HEAD
                 android:text="@string/need_account"
                 android:layout_marginTop="2dp"
+=======
+>>>>>>> 5b90ba3bed49c74ed0bdab5d7284b1e4c849e3cb
                 android:layout_marginLeft="15dp"
+                android:layout_marginTop="5dp"
                 android:layout_marginRight="23dp"
-                android:textColor="@color/colorPrimaryDark"
+                android:text="Need new Account?"
                 android:textAlignment="center"
+                android:textColor="@color/colorPrimaryDark"
                 android:textSize="17sp"
-                android:textStyle="bold"
-                />
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/forgot_password_link"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/need_new_account_link"
+                android:layout_alignParentStart="true"
+                android:layout_marginLeft="15dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginRight="23dp"
+                android:text="@string/forgot_password"
+                android:textAlignment="center"
+                android:textColor="@color/colorPrimaryDark"
+                android:textSize="17sp"
+                android:textStyle="bold" />
 
         </RelativeLayout>
 

@@ -19,6 +19,7 @@
     <string name="old_password">Old password...</string>
     <string name="new_password">New password...</string>
     <string name="update">Update</string>
+<<<<<<< HEAD
     <string name="change_password">Change password</string>
     <string name="username">Display name</string>
     <string name="default_status">Hey, I\'m available now.</string>
@@ -32,4 +33,7 @@
     <string name="please_wait">Please wait ...</string>
     <string name="logging_in">Signing in</string>
     <string name="chats">Chats</string>
+=======
+    <string name="forgot_password">Forgot password?</string>
+>>>>>>> 5b90ba3bed49c74ed0bdab5d7284b1e4c849e3cb
 </resources>

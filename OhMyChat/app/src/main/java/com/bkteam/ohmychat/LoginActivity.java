@@ -21,7 +21,7 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.iid.FirebaseInstanceId;
 
-public class LoginActivity extends AppCompatActivity{
+public class LoginActivity extends AppCompatActivity {
 
     private FirebaseUser currentUser;
     private FirebaseAuth mAuth;
@@ -29,6 +29,7 @@ public class LoginActivity extends AppCompatActivity{
     private Button loginButton, phoneLoginButton;
     private EditText userEmail, userPassword;
     private TextView needNewAccountLink;
+    private TextView forgotPasswordLink;
     private ProgressDialog loadingBar;
 
     private DatabaseReference userRef;
@@ -51,6 +52,13 @@ public class LoginActivity extends AppCompatActivity{
             }
         });
 
+        forgotPasswordLink.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                ResetPassword();
+            }
+        });
+
         loginButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -59,17 +67,33 @@ public class LoginActivity extends AppCompatActivity{
         });
 
 
+    }
 
+    private void ResetPassword() {
+        if (userEmail.getText().toString().matches(""))
+            Toast.makeText(LoginActivity.this, "Please enter the account's email!", Toast.LENGTH_SHORT).show();
+        else{
+            mAuth.sendPasswordResetEmail(userEmail.getText().toString())
+                    .addOnCompleteListener(new OnCompleteListener<Void>() {
+                        @Override
+                        public void onComplete(@NonNull Task<Void> task) {
+                            if (task.isSuccessful()){
+                                Toast.makeText(LoginActivity.this, "Email sent", Toast.LENGTH_SHORT).show();
+                            }
+                            else
+                                Toast.makeText(LoginActivity.this, "Failed to reset password", Toast.LENGTH_SHORT).show();
+                        }
+                    });
+        }
     }
 
     private void AllowUserToLogin() {
         String email = userEmail.getText().toString();
         String password = userPassword.getText().toString();
 
-        if(TextUtils.isEmpty(email)){
+        if (TextUtils.isEmpty(email)) {
             Toast.makeText(this, "Please enter email...", Toast.LENGTH_LONG).show();
-        }
-        else if(TextUtils.isEmpty(password)){
+        } else if (TextUtils.isEmpty(password)) {
             Toast.makeText(this, "Please enter password...", Toast.LENGTH_LONG).show();
         }
         else{
@@ -82,7 +106,7 @@ public class LoginActivity extends AppCompatActivity{
                     .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                         @Override
                         public void onComplete(@NonNull Task<AuthResult> task) {
-                            if(task.isSuccessful()){
+                            if (task.isSuccessful()) {
                                 String currentUserId = mAuth.getCurrentUser().getUid();
                                 String deviceToken = FirebaseInstanceId.getInstance().getToken();
 
@@ -91,7 +115,7 @@ public class LoginActivity extends AppCompatActivity{
                                         .addOnCompleteListener(new OnCompleteListener<Void>() {
                                             @Override
                                             public void onComplete(@NonNull Task<Void> task) {
-                                                if(task.isSuccessful()){
+                                                if (task.isSuccessful()) {
                                                     SendUserToMainActivity();
                                                     Toast.makeText(LoginActivity.this, "Logged", Toast.LENGTH_LONG).show();
                                                     loadingBar.dismiss();
@@ -106,8 +130,7 @@ public class LoginActivity extends AppCompatActivity{
                                         "Logged in Successfull...", Toast.LENGTH_LONG).show();
                                 loadingBar.dismiss();
 
-                            }
-                            else{
+                            } else {
                                 String message = task.getException().toString();
                                 Toast.makeText(LoginActivity.this, "Error : " + message, Toast.LENGTH_LONG).show();
                                 loadingBar.dismiss();
@@ -119,18 +142,19 @@ public class LoginActivity extends AppCompatActivity{
     }
 
     private void InitializeFields() {
-        loginButton = (Button)findViewById(R.id.login_button);
+        loginButton = (Button) findViewById(R.id.login_button);
         userEmail = (EditText) findViewById(R.id.login_email);
         userPassword = (EditText) findViewById(R.id.login_password);
-        needNewAccountLink = (TextView)findViewById(R.id.need_new_account_link);
+        needNewAccountLink = (TextView) findViewById(R.id.need_new_account_link);
+        forgotPasswordLink = (TextView) findViewById(R.id.forgot_password_link);
         loadingBar = new ProgressDialog(this);
     }
 
     @Override
-    protected void onStart(){
+    protected void onStart() {
         super.onStart();
 
-        if(currentUser != null){
+        if (currentUser != null) {
             SendUserToMainActivity();
         }
     }
@@ -141,7 +165,7 @@ public class LoginActivity extends AppCompatActivity{
         startActivity(registerIntent);
     }
 
-    private void SendUserToMainActivity(){
+    private void SendUserToMainActivity() {
         Intent mainIntent = new Intent(LoginActivity.this, MainActivity.class);
         mainIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
         startActivity(mainIntent);
