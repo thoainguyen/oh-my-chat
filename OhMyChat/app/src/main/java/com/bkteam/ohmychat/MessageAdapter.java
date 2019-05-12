@@ -90,11 +90,13 @@ public class MessageAdapter extends RecyclerView.Adapter<MessageAdapter.MessageV
                 messageViewHolder.senderMessageText.setTextColor(Color.BLACK);
                 messageViewHolder.senderMessageText.setText(messages.getMessage());
                 messageViewHolder.senderTimeText.setVisibility(View.VISIBLE);
+                messageViewHolder.senderTimeText.setText(messages.getTime());
             }
             else{
                 messageViewHolder.receiverProfileImage.setVisibility(View.VISIBLE);
                 messageViewHolder.receiverMessageText.setVisibility(View.VISIBLE);
                 messageViewHolder.receiverTimeText.setVisibility(View.VISIBLE);
+                messageViewHolder.receiverTimeText.setText(messages.getTime());
                 messageViewHolder.receiverMessageText.setBackgroundResource(R.drawable.rounded_rectangle_orange);
                 messageViewHolder.receiverMessageText.setTextColor(Color.BLACK);
                 messageViewHolder.receiverMessageText.setText(messages.getMessage());
