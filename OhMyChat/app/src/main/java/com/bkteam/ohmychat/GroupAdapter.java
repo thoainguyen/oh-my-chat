@@ -73,13 +73,13 @@ public class GroupAdapter extends ArrayAdapter<GroupMess> {
             viewHolder.receiverTime.setVisibility(View.VISIBLE);
             viewHolder.receiverName.setText(groupMess.getRe_name());
             viewHolder.receiverMess.setText(groupMess.getRe_mess());
-            viewHolder.receiverTime.setText(groupMess.getRe_date()+ groupMess.getRe_time());
+            viewHolder.receiverTime.setText(groupMess.getRe_time() + " "+groupMess.getRe_date().substring(0,groupMess.getRe_date().length()-6));
         }
         else {
             viewHolder.senderMess.setVisibility(View.VISIBLE);
             viewHolder.senderTime.setVisibility(View.VISIBLE);
             viewHolder.senderMess.setText(groupMess.getSe_mess());
-            viewHolder.senderTime.setText(groupMess.getSe_date()+groupMess.getSe_time());
+            viewHolder.senderTime.setText(groupMess.getSe_time()+" "+groupMess.getSe_date().substring(0,groupMess.getSe_date().length()-6));
         }
 
         return convertView;
