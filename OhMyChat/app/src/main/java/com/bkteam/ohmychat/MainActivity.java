@@ -155,7 +155,7 @@ public class MainActivity extends AppCompatActivity {
 
     private void RequestNewGroup() {
         AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this, R.style.AlertDialog);
-        builder.setTitle("Enter Group Name : ");
+        builder.setTitle(R.string.enter_group_name);
 
         final EditText groupNameField = new EditText(MainActivity.this);
         groupNameField.setHint("e.g Oh My Chat BKU");

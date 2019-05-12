@@ -37,6 +37,7 @@ import de.hdodenhof.circleimageview.CircleImageView;
 public class SettingsActivity extends AppCompatActivity {
 
     private Button updateAccountSettings;
+    private Button changePassword;
     private EditText userName, userStatus;
     private CircleImageView userProfileImage;
     private String currentUserID;
@@ -60,6 +61,12 @@ public class SettingsActivity extends AppCompatActivity {
         rootRef = FirebaseDatabase.getInstance().getReference();
         userProfileImageRef = FirebaseStorage.getInstance().getReference().child("Profile Images");
 
+        changePassword.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                ChangePassword();
+            }
+        });
 
         updateAccountSettings.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -79,6 +86,11 @@ public class SettingsActivity extends AppCompatActivity {
         });
 
         RetrieveUserInfo();
+    }
+
+    private void ChangePassword() {
+        Intent intent = new Intent(SettingsActivity.this, ChangePassActivity.class);
+        startActivity(intent);
     }
 
     private void RetrieveUserInfo() {
@@ -143,6 +155,7 @@ public class SettingsActivity extends AppCompatActivity {
     }
 
     private void InitializeFields() {
+        changePassword = (Button) findViewById(R.id.change_password_button);
         updateAccountSettings = (Button) findViewById(R.id.update_settings_button);
         userName = (EditText) findViewById(R.id.set_user_name);
         userStatus = (EditText) findViewById(R.id.set_profile_status);
@@ -152,7 +165,7 @@ public class SettingsActivity extends AppCompatActivity {
         setSupportActionBar(settingsToolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setDisplayShowHomeEnabled(true);
-        getSupportActionBar().setTitle("Account Settings");
+        getSupportActionBar().setTitle(R.string.account_settings);
     }
 
     @Override
@@ -172,7 +185,7 @@ public class SettingsActivity extends AppCompatActivity {
             CropImage.ActivityResult result = CropImage.getActivityResult(data);
             if (resultCode == RESULT_OK) {
 
-                loadingBar.setTitle("Set profile image");
+                loadingBar.setTitle(R.string.set_profile_image);
                 loadingBar.setMessage("Please wait, your profile image is uploading");
                 loadingBar.setCanceledOnTouchOutside(false);
                 loadingBar.show();

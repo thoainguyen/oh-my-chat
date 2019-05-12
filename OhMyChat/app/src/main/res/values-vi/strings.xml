@@ -16,4 +16,20 @@
     <string name="profile">Trang cá nhân</string>
     <string name="log_out">Đăng xuất</string>
     <string name="already_have_account">Bạn đã có tài khoản?</string>
+    <string name="new_password">Nhập mật khẩu mới</string>
+    <string name="old_password">Nhập mật khẩu cũ</string>
+    <string name="update">Cập nhật</string>
+    <string name="change_password">Thay đổi mật khẩu</string>
+    <string name="username">Tên hiển thị</string>
+    <string name="default_status">Giao lưu kết bạn nhé</string>
+    <string name="cancel_invite">Hủy kết bạn</string>
+    <string name="wanna_connect">muốn kết bạn với bạn.</string>
+    <string name="req_sent">Đã gửi</string>
+    <string name="sent_req_to">"Bạn đã gửi yêu cầu đến "</string>
+    <string name="enter_group_name">Nhập tên nhóm :</string>
+    <string name="account_settings">Điều chỉnh tài khoản</string>
+    <string name="set_profile_image">Đặt ảnh đại diện</string>
+    <string name="please_wait">Vui lòng chờ</string>
+    <string name="logging_in">Đang đăng nhập</string>
+    <string name="chats">Chats</string>
 </resources>

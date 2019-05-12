@@ -106,7 +106,7 @@ public class ProfileActivity extends AppCompatActivity {
                     }
                 }
             });
-            sendMessageRequestButton.setText("Add Friend");
+            sendMessageRequestButton.setText(R.string.add_friend);
             return;
         }
         chatRequestRef.child(senderUserId).child(receiverUserId)
@@ -126,7 +126,7 @@ public class ProfileActivity extends AppCompatActivity {
                                                 chatNotificationMap.put("type", "request");
                                                 notificationRef.child(receiverUserId).push()
                                                         .setValue(chatNotificationMap);
-                                                sendMessageRequestButton.setText("Cancel Invited");
+                                                sendMessageRequestButton.setText(R.string.cancel_invite);
                                             }
                                         }
                                     });

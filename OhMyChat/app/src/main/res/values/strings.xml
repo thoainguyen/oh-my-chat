@@ -16,4 +16,20 @@
     <string name="profile">Profile</string>
     <string name="log_out">Log out</string>
     <string name="already_have_account">Already have an account?</string>
+    <string name="old_password">Old password...</string>
+    <string name="new_password">New password...</string>
+    <string name="update">Update</string>
+    <string name="change_password">Change password</string>
+    <string name="username">Display name</string>
+    <string name="default_status">Hey, I\'m available now.</string>
+    <string name="cancel_invite">Cancel invite</string>
+    <string name="wanna_connect">want to connect with you.</string>
+    <string name="req_sent">Request sent</string>
+    <string name="sent_req_to">"You have sent request to "</string>
+    <string name="enter_group_name">Enter Group Name:</string>
+    <string name="account_settings">Account settings</string>
+    <string name="set_profile_image">Set profile image</string>
+    <string name="please_wait">Please wait ...</string>
+    <string name="logging_in">Signing in</string>
+    <string name="chats">Chats</string>
 </resources>

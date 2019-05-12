@@ -47,7 +47,7 @@
             android:layout_weight="1"
             android:layout_height="wrap_content"
             android:maxLines="1"
-            android:hint="Message..."
+            android:hint="@string/message"
             android:padding="17dp" />
 
         <ImageButton
