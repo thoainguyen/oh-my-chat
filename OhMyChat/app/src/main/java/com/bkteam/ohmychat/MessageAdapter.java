@@ -1,7 +1,6 @@
 package com.bkteam.ohmychat;
 
 import android.graphics.Color;
-import android.os.Message;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -32,16 +31,16 @@ public class MessageAdapter extends RecyclerView.Adapter<MessageAdapter.MessageV
 
     public class MessageViewHolder extends RecyclerView.ViewHolder{
 
-        public TextView senderMessageText, receiverMessageText;
+        public TextView senderMessageText, senderTimeText, receiverTimeText, receiverMessageText;
         public CircleImageView receiverProfileImage;
 
         public MessageViewHolder(@NonNull View itemView) {
             super(itemView);
-
-            senderMessageText = (TextView)itemView.findViewById(R.id.sender_message_text);
-            receiverMessageText = (TextView)itemView.findViewById(R.id.receiver_message_text);
-            receiverProfileImage = (CircleImageView) itemView.findViewById(R.id.message_profile_image);
-
+            senderMessageText = (TextView)itemView.findViewById(R.id.text_message_send);
+            senderTimeText = (TextView)itemView.findViewById(R.id.text_message_time_send);
+            receiverMessageText = (TextView)itemView.findViewById(R.id.text_message_receiver);
+            receiverTimeText =(TextView)itemView.findViewById(R.id.text_message_time_receiver);
+            receiverProfileImage = (CircleImageView) itemView.findViewById(R.id.image_message_profile);
         }
     }
 
@@ -49,7 +48,7 @@ public class MessageAdapter extends RecyclerView.Adapter<MessageAdapter.MessageV
     @Override
     public MessageViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
         View view = LayoutInflater.from(viewGroup.getContext())
-                .inflate(R.layout.custom_messages_layout, viewGroup, false);
+                .inflate(R.layout.item_message_personal, viewGroup, false);
         mAuth = FirebaseAuth.getInstance();
         return new MessageViewHolder(view);
     }
@@ -82,17 +81,21 @@ public class MessageAdapter extends RecyclerView.Adapter<MessageAdapter.MessageV
             messageViewHolder.receiverProfileImage.setVisibility(View.INVISIBLE);
             messageViewHolder.receiverMessageText.setVisibility(View.INVISIBLE);
             messageViewHolder.senderMessageText.setVisibility(View.INVISIBLE);
+            messageViewHolder.senderTimeText.setVisibility(View.INVISIBLE);
+            messageViewHolder.receiverTimeText.setVisibility(View.INVISIBLE);
 
             if(fromUserID.equals(messageSenderID)){
                 messageViewHolder.senderMessageText.setVisibility(View.VISIBLE);
-                messageViewHolder.senderMessageText.setBackgroundResource(R.drawable.sender_messages_layout);
+                messageViewHolder.senderMessageText.setBackgroundResource(R.drawable.rounded_rectangle_green);
                 messageViewHolder.senderMessageText.setTextColor(Color.BLACK);
                 messageViewHolder.senderMessageText.setText(messages.getMessage());
+                messageViewHolder.senderTimeText.setVisibility(View.VISIBLE);
             }
             else{
                 messageViewHolder.receiverProfileImage.setVisibility(View.VISIBLE);
                 messageViewHolder.receiverMessageText.setVisibility(View.VISIBLE);
-                messageViewHolder.receiverMessageText.setBackgroundResource(R.drawable.receiver_messages_layout);
+                messageViewHolder.receiverTimeText.setVisibility(View.VISIBLE);
+                messageViewHolder.receiverMessageText.setBackgroundResource(R.drawable.rounded_rectangle_orange);
                 messageViewHolder.receiverMessageText.setTextColor(Color.BLACK);
                 messageViewHolder.receiverMessageText.setText(messages.getMessage());
             }

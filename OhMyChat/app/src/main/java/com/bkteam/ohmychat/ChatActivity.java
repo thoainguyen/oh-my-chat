@@ -134,13 +134,12 @@ public class ChatActivity extends AppCompatActivity {
 
     private void InitializeControllers() {
         chatToolBar = (Toolbar)findViewById(R.id.chat_toolbar);
-
         setSupportActionBar(chatToolBar);
-
         ActionBar actionBar = getSupportActionBar();
         assert actionBar != null;
-        actionBar.setDisplayHomeAsUpEnabled(true);
         actionBar.setDisplayShowCustomEnabled(true);
+        actionBar.setDisplayHomeAsUpEnabled(true);
+        actionBar.setTitle(0);
         LayoutInflater layoutInflater = (LayoutInflater)this.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         View actionBarView = layoutInflater.inflate(R.layout.custom_chat_bar, null);
 

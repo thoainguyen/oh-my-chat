@@ -1,19 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="wrap_content"
+    android:background="@drawable/custom_app_bar_layout">
 
     <TextView
         android:id="@+id/custom_profile_name"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="5dp"
-        android:layout_marginEnd="2dp"
-        android:layout_weight="3"
+        android:layout_width="299dp"
+        android:layout_height="47dp"
+        android:layout_weight="5"
+        android:gravity="left"
         android:text="@string/display_name"
         android:textColor="@android:color/background_light"
-        android:textSize="20sp"
+        android:textSize="21sp"
         android:textStyle="bold" />
 
     <de.hdodenhof.circleimageview.CircleImageView
@@ -21,8 +20,9 @@
         android:layout_width="47dp"
         android:layout_height="47dp"
         android:layout_marginTop="1dp"
-        android:layout_weight="1"
-        android:cropToPadding="true"
+        android:layout_weight="3"
+        android:cropToPadding="false"
+        android:gravity="right"
         android:src="@drawable/profile_image" />
 
 </LinearLayout>
