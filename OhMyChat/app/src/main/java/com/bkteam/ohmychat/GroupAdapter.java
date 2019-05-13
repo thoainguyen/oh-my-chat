@@ -66,20 +66,20 @@ public class GroupAdapter extends ArrayAdapter<GroupMess> {
         viewHolder.senderMess.setVisibility(View.INVISIBLE);
         viewHolder.senderTime.setVisibility(View.INVISIBLE);
 
-        if (groupMess.getSe_mess().equals("")){
+        if (groupMess.getSeMsg().equals("")){
             viewHolder.receiverName.setVisibility(View.VISIBLE);
             viewHolder.receiverAvt.setVisibility(View.VISIBLE);
             viewHolder.receiverMess.setVisibility(View.VISIBLE);
             viewHolder.receiverTime.setVisibility(View.VISIBLE);
-            viewHolder.receiverName.setText(groupMess.getRe_name());
-            viewHolder.receiverMess.setText(groupMess.getRe_mess());
-            viewHolder.receiverTime.setText(groupMess.getRe_time() + " "+groupMess.getRe_date().substring(0,groupMess.getRe_date().length()-6));
+            viewHolder.receiverName.setText(groupMess.getReName());
+            viewHolder.receiverMess.setText(groupMess.getReMsg());
+            viewHolder.receiverTime.setText(groupMess.getReTime() + " "+groupMess.getReDate().substring(0,groupMess.getReDate().length()-6));
         }
         else {
             viewHolder.senderMess.setVisibility(View.VISIBLE);
             viewHolder.senderTime.setVisibility(View.VISIBLE);
-            viewHolder.senderMess.setText(groupMess.getSe_mess());
-            viewHolder.senderTime.setText(groupMess.getSe_time()+" "+groupMess.getSe_date().substring(0,groupMess.getSe_date().length()-6));
+            viewHolder.senderMess.setText(groupMess.getSeMsg());
+            viewHolder.senderTime.setText(groupMess.getSeTime()+" "+groupMess.getSeDate().substring(0,groupMess.getSeDate().length()-6));
         }
 
         return convertView;

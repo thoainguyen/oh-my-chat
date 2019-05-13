@@ -1,52 +1,43 @@
 package com.bkteam.ohmychat;
 
 public class GroupMess {
-    String re_name;
-    String re_mess;
-    String re_date;
-    String re_time;
+    private String reName, reMsg, reDate, reTime, seMsg, seDate, seTime;
+    public GroupMess(String reName, String reMsg, String reDate, String reTime, String seMsg, String seDate, String seTime ) {
+        this.reName=reName;
+        this.reMsg=reMsg;
+        this.reDate=reDate;
+        this.reTime=reTime;String re_name;
 
-    String se_mess;
-    String se_date;
-    String se_time;
-
-    public GroupMess(String re_name, String re_mess, String re_date, String re_time, String se_mess, String se_date, String se_time ) {
-        this.re_name=re_name;
-        this.re_mess=re_mess;
-        this.re_date=re_date;
-        this.re_time=re_time;
-
-        this.se_mess=se_mess;
-        this.se_date=se_date;
-        this.se_time=se_time;
-
+        this.seMsg=seMsg;
+        this.seDate=seDate;
+        this.seTime=seTime;
     }
 
-    public String getRe_name() {
-        return re_name;
+    public String getReName() {
+        return reName;
     }
 
-    public String getRe_mess() {
-        return re_mess;
+    public String getReMsg() {
+        return reMsg;
     }
 
-    public String getRe_date() {
-        return re_date;
+    public String getReDate() {
+        return reDate;
     }
 
-    public String getRe_time() {
-        return re_time;
+    public String getReTime() {
+        return reTime;
     }
 
-    public String getSe_mess() {
-        return se_mess;
+    public String getSeMsg() {
+        return seMsg;
     }
 
-    public String getSe_date() {
-        return se_date;
+    public String getSeDate() {
+        return seDate;
     }
 
-    public String getSe_time() {
-        return se_time;
+    public String getSeTime() {
+        return seTime;
     }
 }
