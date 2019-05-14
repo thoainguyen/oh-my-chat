@@ -34,29 +34,53 @@ This app is developed using:
     * Current group chat
     * List of messages
 
-## Screen shots
+## Screenshots
 
+<center>
+<img src="./screenshots/signup.png" width="360" height="750"  />
+<center/>
 
-![](./screenshots/signup.png)
+<center>
+<img src="./screenshots/signin.png" width="360" height="750"  />
+<center/>
 
-![](./screenshots/signin.png)
+<center>
+<img src="./screenshots/profile.png" width="360" height="750"  />
+<center/>
 
-![](./screenshots/profile.png)
+<center>
+<img src="./screenshots/notification.png" width="360" height="750"  />
+<center/>
 
-![](./screenshots/notification.png)
+<center>
+<img src="./screenshots/request.jpg" width="360" height="750"  />
+<center/>
 
-![](./screenshots/request.jpg)
+<center>
+<img src="./screenshots/toolbox-accept.png" width="360" height="750"  />
+<center/>
 
-![](./screenshots/toolbox-accept.png)
+<center>
+<img src="./screenshots/list-friend.jpg" width="360" height="750"  />
+<center/>
 
-![](./screenshots/list-friend.jpg)
+<center>
+<img src="./screenshots/chat.png" width="360" height="750"  />
+<center/>
 
-![](./screenshots/chat.png)
+<center>
+<img src="./screenshots/create-group.png" width="360" height="750"  />
+<center/>
 
-![](./screenshots/create-group.png)
+<center>
+<img src="./screenshots/list-group.png" width="360" height="750"  />
+<center/>
 
-![](./screenshots/list-group.png)
+<center>
+<img src="./screenshots/group.png" width="360" height="750"  />
+<center/>
 
-![](./screenshots/group.png)
+<center>
+<img src="./screenshots/menu.png" width="360" height="750"  />
+<center/>
 
-![](./screenshots/menu.png)
