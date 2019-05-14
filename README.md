@@ -42,7 +42,7 @@ This app is developed using:
 
 <p align="center">
 <img src="./screenshots/signin.png" width="360" height="750"  />
-</p>
+</po>
 
 <p align="center">
 <img src="./screenshots/profile.png" width="360" height="750"  />
