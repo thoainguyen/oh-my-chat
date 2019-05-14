@@ -43,7 +43,7 @@ This app is developed using:
 
 ![](./screenshots/profile.png)
 
-![](./screenshots/notificate.jpg)
+![](./screenshots/notification.png)
 
 ![](./screenshots/request.jpg)
 
@@ -58,3 +58,5 @@ This app is developed using:
 ![](./screenshots/list-group.png)
 
 ![](./screenshots/group.png)
+
+![](./screenshots/menu.png)
