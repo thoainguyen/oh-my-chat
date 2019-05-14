@@ -34,8 +34,27 @@ This app is developed using:
     * Current group chat
     * List of messages
 
+## Screen shots
 
 
- 
+![](./screenshots/signup.png)
 
- 
+![](./screenshots/signin.png)
+
+![](./screenshots/profile.png)
+
+![](./screenshots/notificate.jpg)
+
+![](./screenshots/request.jpg)
+
+![](./screenshots/toolbox-accept.png)
+
+![](./screenshots/list-friend.jpg)
+
+![](./screenshots/chat.png)
+
+![](./screenshots/create-group.png)
+
+![](./screenshots/list-group.png)
+
+![](./screenshots/group.png)
