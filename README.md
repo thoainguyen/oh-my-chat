@@ -37,50 +37,50 @@ This app is developed using:
 ## Screenshots
 
 <center>
-<img src="./screenshots/signup.png" width="360" height="750"  />
+<img src="./screenshots/signup.png" width="240" height="500"  />
 <center/>
 
 <center>
-<img src="./screenshots/signin.png" width="360" height="750"  />
+<img src="./screenshots/signin.png" width="240" height="500"  />
 <center/>
 
 <center>
-<img src="./screenshots/profile.png" width="360" height="750"  />
+<img src="./screenshots/profile.png" width="240" height="500"  />
 <center/>
 
 <center>
-<img src="./screenshots/notification.png" width="360" height="750"  />
+<img src="./screenshots/notification.png" width="240" height="500"  />
 <center/>
 
 <center>
-<img src="./screenshots/request.jpg" width="360" height="750"  />
+<img src="./screenshots/request.jpg" width="240" height="500"  />
 <center/>
 
 <center>
-<img src="./screenshots/toolbox-accept.png" width="360" height="750"  />
+<img src="./screenshots/toolbox-accept.png" width="240" height="500"  />
 <center/>
 
 <center>
-<img src="./screenshots/list-friend.jpg" width="360" height="750"  />
+<img src="./screenshots/list-friend.jpg" width="240" height="500"  />
 <center/>
 
 <center>
-<img src="./screenshots/chat.png" width="360" height="750"  />
+<img src="./screenshots/chat.png" width="240" height="500"  />
 <center/>
 
 <center>
-<img src="./screenshots/create-group.png" width="360" height="750"  />
+<img src="./screenshots/create-group.png" width="240" height="500"  />
 <center/>
 
 <center>
-<img src="./screenshots/list-group.png" width="360" height="750"  />
+<img src="./screenshots/list-group.png" width="240" height="500"  />
 <center/>
 
 <center>
-<img src="./screenshots/group.png" width="360" height="750"  />
+<img src="./screenshots/group.png" width="240" height="500"  />
 <center/>
 
 <center>
-<img src="./screenshots/menu.png" width="360" height="750"  />
+<img src="./screenshots/menu.png" width="240" height="500"  />
 <center/>
 
