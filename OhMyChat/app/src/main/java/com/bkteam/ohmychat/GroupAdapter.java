@@ -13,8 +13,8 @@ import java.util.ArrayList;
 
 import de.hdodenhof.circleimageview.CircleImageView;
 
-public class GroupAdapter extends ArrayAdapter<GroupMess> {
-    private ArrayList<GroupMess> dataSet;
+public class GroupAdapter extends ArrayAdapter<GroupMessage> {
+    private ArrayList<GroupMessage> dataSet;
     Context mContext;
 
     private static class ViewHolder{
@@ -26,7 +26,7 @@ public class GroupAdapter extends ArrayAdapter<GroupMess> {
         TextView    senderTime;
     }
 
-    public GroupAdapter(ArrayList<GroupMess> data, Context context){
+    public GroupAdapter(ArrayList<GroupMessage> data, Context context){
         super(context,R.layout.item_message_group,data);
         this.dataSet = data;
         this.mContext = context;
@@ -36,7 +36,7 @@ public class GroupAdapter extends ArrayAdapter<GroupMess> {
 
     @Override
     public View getView(int position, View convertView, ViewGroup parent){
-        GroupMess groupMess = getItem(position);
+        GroupMessage groupMess = getItem(position);
         ViewHolder viewHolder;
         final View result;
 

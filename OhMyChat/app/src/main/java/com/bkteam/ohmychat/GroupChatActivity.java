@@ -47,7 +47,7 @@ public class GroupChatActivity extends AppCompatActivity {
     private String currentGroupName, currentUserID, currentUserName, currentDate, currentTime;
 
     //Test list view
-    ArrayList<GroupMess> listItems;
+    ArrayList<GroupMessage> listItems;
     private static GroupAdapter adapter;
 
 
@@ -124,10 +124,10 @@ public class GroupChatActivity extends AppCompatActivity {
             String chatTime = (String)((DataSnapshot)iterator.next()).getValue();
             if (currentUserName.equals(chatName)) {
 
-                listItems.add(new GroupMess("","","","",chatMessage,chatDate,chatTime));
+                listItems.add(new GroupMessage("","","","",chatMessage,chatDate,chatTime));
             }
             else {
-                listItems.add(new GroupMess(chatName,chatMessage,chatDate,chatTime,"","",""));
+                listItems.add(new GroupMessage(chatName,chatMessage,chatDate,chatTime,"","",""));
             }
         }
 
@@ -189,7 +189,7 @@ public class GroupChatActivity extends AppCompatActivity {
         mToolbar = (Toolbar)findViewById(R.id.group_chat_bar_layout);
         setSupportActionBar(mToolbar);
         getSupportActionBar().setTitle(currentGroupName);
-        listItems = new ArrayList<GroupMess>();
+        listItems = new ArrayList<GroupMessage>();
         sendMessageButton = (ImageButton)findViewById(R.id.send_message_button);
         userMessageInput = (EditText)findViewById(R.id.input_group_message);
         displayTextMessages = (ListView) findViewById(R.id.group_chat_text_display);
